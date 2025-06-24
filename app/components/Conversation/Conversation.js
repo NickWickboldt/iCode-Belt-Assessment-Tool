@@ -1,0 +1,75 @@
+'use client';
+
+import { useConversation } from '@elevenlabs/react';
+import { useCallback, useState, useEffect } from 'react';
+import Subtitles from '../Subtitles/Subtitles';
+
+import styles from './Conversation.module.css';
+
+export function Conversation() {
+  const [transcript, setTranscript] = useState('');
+
+  const conversation = useConversation({
+    streaming: true,
+    onConnect: () => console.log('Connected'),
+    onDisconnect: () => console.log('Disconnected'),
+    onMessage: (msg) => {
+      // parse if it’s a JSON string, else use it directly
+      let payload = typeof msg === 'string' ? JSON.parse(msg) : msg;
+      const text = payload.text ?? payload.message ?? '';
+      setTranscript(text);
+    },
+    onError: (err) => console.error('Error:', err),
+  });
+
+  // clear previous text when AI starts speaking
+  useEffect(() => {
+    if (conversation.isSpeaking) setTranscript('');
+  }, [conversation.isSpeaking]);
+
+  const startConversation = useCallback(async () => {
+    try {
+      await navigator.mediaDevices.getUserMedia({ audio: true });
+      await conversation.startSession({ agentId: 'agent_01jyhs6axffe1tmbepe5rc5n0k' });
+    } catch (e) {
+      console.error('Failed to start:', e);
+    }
+  }, [conversation]);
+
+  const stopConversation = useCallback(async () => {
+    await conversation.endSession();
+  }, [conversation]);
+
+  return (
+    <div>
+<div className={styles.conversationContainer}>
+      <div className={styles.buttonGroup}>
+        {conversation.status !== 'connected' ? (
+          <button
+            onClick={startConversation}
+            className={`${styles.button} primary-button`}
+          >
+            Start Assessment
+          </button>
+        ) : (
+          <button
+            onClick={stopConversation}
+            className={`${styles.button} ${styles.stopButton} `}
+          >
+            Stop Assessment
+          </button>
+        )}
+      </div>
+
+      <div className={styles.statusInfo}>
+        <p>Status: {conversation.status}</p>
+        <p>Agent is {conversation.isSpeaking ? 'speaking' : 'listening'}</p>
+      </div>
+
+      
+    </div>
+      <Subtitles text={transcript} />
+    </div>
+    
+  );
+}

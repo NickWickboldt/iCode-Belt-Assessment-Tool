@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@elevenlabs/react": "^0.1.7",
     "framer-motion": "^12.19.1",
     "next": "15.3.4",
     "react": "^19.0.0",

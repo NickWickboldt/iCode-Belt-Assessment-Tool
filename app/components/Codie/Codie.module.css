@@ -3,7 +3,7 @@
 /* The main container for Codie. Positioned absolutely to allow placement via props. */
 .codieContainer {
   position: absolute;
-  z-index: 50; /* Ensures Codie appears above most other content */
+  z-index: 10; /* Ensures Codie appears above most other content */
   
   display: flex;
   justify-content: center;
