@@ -1,0 +1,52 @@
+/* Subtitles.module.css */
+
+/* This container is a fixed element that sits at the bottom of the viewport. */
+.subtitlesContainer {
+  position: fixed;
+  bottom: 5%; /* Distance from the bottom of the screen */
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content; 
+  max-width: 85%; 
+  
+  padding: 0.75rem 1.5rem;
+  background-color: rgba(0, 0, 0, 0.75); 
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  z-index: 2000; 
+  
+  pointer-events: none; 
+  
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Styling for the text itself */
+.subtitleText {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.4;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* Media query for smaller screens like mobile */
+@media (max-width: 768px) {
+  .subtitlesContainer {
+    max-width: 95%; /* Allow it to take up more space on smaller screens */
+    bottom: 20px;
+    padding: 0.5rem 1rem;
+  }
+  
+  .subtitleText {
+    font-size: 1rem;
+  }
+}
+

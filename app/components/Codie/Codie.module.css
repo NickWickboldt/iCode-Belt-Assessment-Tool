@@ -1,0 +1,33 @@
+/* Codie.module.css */
+
+/* The main container for Codie. Positioned absolutely to allow placement via props. */
+.codieContainer {
+  position: absolute;
+  z-index: 50; /* Ensures Codie appears above most other content */
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(50%, -50%);
+}
+
+/* A subtle animation to make Codie feel more dynamic and less static */
+/* @keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+} */
+
+/* Styling for the image itself */
+.codieImage {
+  /* Optional: if you want to add a subtle drop shadow */
+  filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.1));
+  user-select: none; /* Prevents users from dragging the image */
+  -webkit-user-drag: none; 
+}

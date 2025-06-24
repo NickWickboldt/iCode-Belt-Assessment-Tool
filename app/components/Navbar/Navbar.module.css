@@ -1,0 +1,75 @@
+/* app/components/Navbar/Navbar.module.css */
+
+.navbar {
+  width: 100%;
+  background-color: var(--designer-black);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  left: 0; 
+  z-index: 1000;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.navbarContainer {
+  max-width: 100%; 
+  margin: 0 auto; /* Center the container */
+  display: flex;
+  justify-content: space-between; /* This is key: pushes logo and links to opposite ends */
+  align-items: center;
+}
+
+.logoContainer a {
+  display: flex; /* Helps with alignment of the image within the link */
+  align-items: center;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Creates space between the buttons */
+  margin-right:2vmin;
+}
+
+.navButton {
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+}
+
+/* Style for the secondary button */
+.accessibilityButton {
+  background-color: transparent;
+  color: white;
+  border: 1px solid #ccc;
+}
+
+.accessibilityButton:hover {
+  background-color: #f5f5f5;
+  border-color: #bbb;
+  color: black; 
+}
+
+
+
+/* Basic responsiveness for smaller screens */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+  
+  .navbarContainer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .navLinks {
+    width: 100%;
+    justify-content: space-around;
+  }
+}
