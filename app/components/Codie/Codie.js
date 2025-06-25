@@ -23,7 +23,7 @@ export default function Codie({ top, bottom, left, right }) {
       <img
         src="/codie-static.png"
         alt="Codie"
-        width={600}
+        width={620}
         height={720}
         className={styles.codieImage}
       />

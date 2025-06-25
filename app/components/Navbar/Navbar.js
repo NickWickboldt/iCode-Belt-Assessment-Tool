@@ -1,9 +1,10 @@
 'use client'
-import Image from 'next/image'; 
+import Image from 'next/image';
 import styles from "./Navbar.module.css";
 import Link from 'next/link'; 
 
-export default function Navbar() {
+
+export default function Navbar({setShowChatLog}) {
 
   return (
     <nav className={styles.navbar}>
@@ -23,7 +24,7 @@ export default function Navbar() {
 
         {/* Navigation Buttons on the far right */}
         <div className={styles.navLinks}>
-          <button className={`${styles.navButton} ${styles.accessibilityButton}`}>
+          <button className={`${styles.navButton} ${styles.accessibilityButton}`} onClick={() => setShowChatLog(prev => !prev)}>
             Toggle Chatlog
           </button>
           <button className={`${styles.navButton} primary-button`}>
