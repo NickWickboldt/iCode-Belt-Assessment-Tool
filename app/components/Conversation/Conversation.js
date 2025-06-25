@@ -42,7 +42,7 @@ export function Conversation({ addMessage }) {
     try {
       await navigator.mediaDevices.getUserMedia({ audio: true });
       await conversation.startSession({
-        agentId: "agent_01jyhs6axffe1tmbepe5rc5n0k",
+        agentId: process.env.NEXT_PUBLIC_AGENT_KEY,
       });
     } catch (e) {
       console.error("Failed to start:", e);
