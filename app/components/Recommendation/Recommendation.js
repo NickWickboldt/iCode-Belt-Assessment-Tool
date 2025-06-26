@@ -146,6 +146,26 @@ export default function Recommendation({ recommendation, retakeAssessment }) {
           </div>
         </div>
 
+        <div className={styles.detailsGrid}>
+          <div className={styles.concepts}>
+            <h3 className={styles.subtitle}>{"Key Concepts:"}</h3>
+            <ul>
+              {data.keyConcepts?.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className={styles.sprints}>
+            <h3 className={styles.subtitle}>Sprints:</h3>
+            <ul>
+              {data.sprints?.map((outcome, index) => (
+                <li key={index}>{outcome}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
         <div className={styles.nextSteps}>
           <h3 className={styles.subtitle}>{"Recommendations to Prepare:"}</h3>
           <ul className={styles.recommendationList}>

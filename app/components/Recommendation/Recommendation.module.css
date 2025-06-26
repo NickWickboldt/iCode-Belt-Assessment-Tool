@@ -82,13 +82,17 @@
 }
 
 .strengths ul,
-.areasForImprovement ul {
+.areasForImprovement ul,
+.sprints ul,
+.concepts ul {
   list-style-type: none;
   padding-left: 0;
 }
 
 .strengths li,
-.areasForImprovement li {
+.areasForImprovement li,
+.sprints li,
+.concepts li {
   background-color: #f9f9f9;
   padding: 0.8rem;
   border-radius: 6px;
@@ -97,14 +101,6 @@
   padding-left: 2rem;
 }
 
-.strengths li::before,
-.areasForImprovement li::before {
-  position: absolute;
-  left: 0.8rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-weight: bold;
-}
 
 .strengths li::before {
   content: "✔";
@@ -115,6 +111,29 @@
   content: "➤";
   color: var(--orange-belt);
 }
+
+.concepts li::before {
+  content: "🔍";
+  color: var(--blue-belt);
+}
+
+.sprints li::before {
+  content: "⏳";
+  color: var(--yellow-belt);
+}
+
+
+.strengths li::before,
+.areasForImprovement li::before,
+.sprints li::before,
+.concepts li::before {
+  position: absolute;
+  left: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+}
+
 
 .nextSteps {
   background-color: #f8f9fa;
