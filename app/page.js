@@ -15,6 +15,7 @@ export default function Home() {
   const [micStatus, setMicStatus] = useState('loading'); 
   const [micError, setMicError] = useState(null);
   const [messages, setMessages] = useState([]);
+  const [retakeAssessment, setRetakeAssessment] = useState(false);
 
   const addMessage = (msg) => {
     setMessages(prev => [...prev, msg]);
@@ -66,12 +67,12 @@ export default function Home() {
 
   return (
     <div >
-      <Navbar setShowChatLog={setShowChatLog} />
+      <Navbar setShowChatLog={setShowChatLog} retakeAssessment={retakeAssessment} chatlogIsOpen={showChatLog} />
       <ChatLog messages={messages} isOpen={showChatLog} />
       
       <div className="main-content-wrapper">
         <AssessmentForm setShowConversation = {setShowConversation}/>
-        <Conversation addMessage={addMessage} isOpen={showConversation}/>
+        <Conversation addMessage={addMessage} isOpen={showConversation} setRetakeAssessment={setRetakeAssessment}/>
       </div>
 
     </div>

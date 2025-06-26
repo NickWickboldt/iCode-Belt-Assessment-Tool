@@ -7,10 +7,10 @@ import Recommendation from "../Recommendation/Recommendation";
 import Codie from "../Codie/Codie";
 import styles from "./Conversation.module.css";
 
-export function Conversation({ addMessage, isOpen }) {
+export function Conversation({ addMessage, isOpen, setRetakeAssessment }) {
   const [transcript, setTranscript] = useState("");
-  const [isRecommendation, setIsRecommendation] = useState(false);
-  const [recommendation, setRecommendation] = useState('');
+  const [isRecommendation, setIsRecommendation] = useState(true);
+  const [recommendation, setRecommendation] = useState('Red Belt');
   const [isStarting, setIsStarting] = useState(false);
   const [error, setError] = useState(null);
 
@@ -107,7 +107,7 @@ export function Conversation({ addMessage, isOpen }) {
           <p>Codie is {conversation.isSpeaking ? "speaking" : "listening"}</p>
         </div>
       </div>
-      {isRecommendation ? <Recommendation recommendation={recommendation}/> : <></>}
+      {isRecommendation ? <Recommendation retakeAssessment={setRetakeAssessment} recommendation={recommendation}/> : <></>}
       <Subtitles text={transcript} />
     </div>
   );

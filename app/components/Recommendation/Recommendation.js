@@ -2,12 +2,20 @@
 import beltData from '@/data/belt_data.json';
 import styles from "./Recommendation.module.css";
 import { getCanonicalBeltKey } from '@/lib/utils';
+import { useEffect } from 'react';
 
-export default function Recommendation({ recommendation }) {
+export default function Recommendation({ recommendation, retakeAssessment }) {
   // Destructure the recommendation object for easier access
   const canonicalKey = getCanonicalBeltKey(recommendation);
   const data = canonicalKey ? beltData[canonicalKey] : null;
-  console.log(data)
+  
+  //Call retakeAssessment(true) to enable the Retake Assessment button
+  useEffect(() => {
+    // This code now runs *after* the component renders
+    if (data) {
+      retakeAssessment(true);
+    }
+  }, [data, retakeAssessment]);
 
   return (
     <div className={styles.recommendationContainer}>
