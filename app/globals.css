@@ -21,9 +21,8 @@
   --dark-grey: #bec1c4;
 
   --modal-bg: #f5f5f5;
-  --shadow-modal: 0px 8px 16px 0px rgba(0, 0, 0, 0.2)
+  --shadow-modal: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
-
 
 /* @media (prefers-color-scheme: dark) {
   :root {
@@ -63,22 +62,66 @@ a {
   }
 }
 
-.div-container{
+.div-container {
   background-color: white;
   box-shadow: var(--shadow-modal);
   border-radius: 10px;
   padding: 2vmin;
 }
 
-/* Style for the primary call-to-action button */
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1vmin;
+  margin-bottom: 2vmin;
+}
+
+.input-container > input {
+  width: 100%;
+  padding: 0.75rem 1rem; /* nice roomy padding */
+  font-size: 1rem; /* legible text */
+  font-family: inherit; /* match your UI */
+  color: black; /* your text color var */
+  background-color: var(--modal-bg);
+  border: 1px solid var(--border); /* subtle border */
+  border-radius: 0.5rem; /* rounded corners */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-container > input:focus {
+  outline: none;
+  border-color: var(--pace); /* highlight color */
+}
+
+.input-container > input::placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
 .primary-button {
-  background-color: #0070f3; /* A modern blue, common in tech */
+  background-color: var(--pace);
   color: white;
   border: 1px solid transparent;
 }
 
-.primary-button:hover {
-  background-color: #005bb5;
+.danger-button {
+  background-color: var(--red-belt);
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+  opacity: 0.8;
   transform: translateY(-1px);
   box-shadow: 0 4px 10px rgba(0, 112, 243, 0.2);
 }

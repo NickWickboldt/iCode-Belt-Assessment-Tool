@@ -24,10 +24,10 @@ export default function Navbar({setShowChatLog}) {
 
         {/* Navigation Buttons on the far right */}
         <div className={styles.navLinks}>
-          <button className={`${styles.navButton} ${styles.accessibilityButton}`} onClick={() => setShowChatLog(prev => !prev)}>
+          <button className={`${styles.navButton} ${styles.accessibilityButton} btn`} onClick={() => setShowChatLog(prev => !prev)}>
             Toggle Chatlog
           </button>
-          <button className={`${styles.navButton} primary-button`}>
+          <button className={`${styles.navButton} primary-button btn`}>
             Legacy Assessment
           </button>
         </div>

@@ -65,14 +65,14 @@ export function Conversation({ addMessage }) {
           {conversation.status !== "connected" ? (
             <button
               onClick={startConversation}
-              className={`${styles.button} primary-button`}
+              className={`primary-button btn`}
             >
               Start Assessment
             </button>
           ) : (
             <button
               onClick={stopConversation}
-              className={`${styles.button} ${styles.stopButton} `}
+              className={`danger-button btn`}
             >
               Stop Assessment
             </button>

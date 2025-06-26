@@ -20,24 +20,6 @@
   align-items: center;
 }
 
-.button {
-  padding: 0.5rem 1rem;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-
-.stopButton {
-  background-color: #ef4444;  /* red-500 */
-}
-.stopButton:hover {
-  background-color: #dc2626;
-}
-
 /* (.button:disabled is no longer needed since we only render one active button) */
 
 .statusInfo {
