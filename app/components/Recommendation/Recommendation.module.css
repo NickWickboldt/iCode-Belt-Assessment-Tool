@@ -1,24 +1,24 @@
 /* Recommendation.module.css */
 
 .recommendationContainer {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    padding: 4vmin;
-    width: 80%; 
-    min-height: 60; 
-    height: fit-content; 
-    overflow-y: scroll;
-    max-height: 80%; 
-    margin: 2rem auto;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border-left: 8px solid var(--pace); 
-    position: absolute;
-    left:50%; 
-    top:50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000; 
-    scrollbar-width: none;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  padding: 4vmin;
+  width: 80%;
+  min-height: 60;
+  height: fit-content;
+  overflow-y: scroll;
+  max-height: 80%;
+  margin: 2rem auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-left: 8px solid var(--pace);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  scrollbar-width: none;
 }
 
 .beltIcon {
@@ -181,17 +181,16 @@
 
 /* Overlay form styles */
 .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7); /* Darker overlay for better focus */
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   z-index: 1010;
-  padding: 2rem;
-  border-radius: 10px;
 }
 
 .form {
@@ -205,6 +204,13 @@
   flex-direction: column;
 }
 
-.blur{
-  
+.formBtn{
+  align-self: flex-end;
+}
+
+.blurred {
+  filter: blur(8px);
+  pointer-events: none;
+  user-select: none;
+  transition: filter 0.3s ease-in-out;
 }
