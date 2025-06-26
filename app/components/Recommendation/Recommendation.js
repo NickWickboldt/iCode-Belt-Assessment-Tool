@@ -19,7 +19,7 @@ export default function Recommendation({ recommendation }) {
         />
       )}
       <div className={styles.header}>
-        <h2 className={styles.title}>Codie's Recommendation!</h2>
+        <h2 className={styles.title}>{"Codie's Recommendation!"}</h2>
       </div>
 
       <div className={styles.beltRecommendation}>
@@ -29,7 +29,7 @@ export default function Recommendation({ recommendation }) {
 
       <div className={styles.detailsGrid}>
         <div className={styles.strengths}>
-          <h3 className={styles.subtitle}>In this belt you will:</h3>
+          <h3 className={styles.subtitle}>{"In this belt you will:"}</h3>
           <ul>
             {data.inThisBelt?.map((item, index) => (
               <li key={index}>{item}</li>
@@ -48,7 +48,7 @@ export default function Recommendation({ recommendation }) {
       </div>
 
       <div className={styles.nextSteps}>
-        <h3 className={styles.subtitle}>Recommendations to Prepare:</h3>
+        <h3 className={styles.subtitle}>{"Recommendations to Prepare:"}</h3>
         <ul className={styles.recommendationList}>
           {data.recommendations?.map((recommendation, index) => (
             <li key={index} className={styles.recommendationItem}>
