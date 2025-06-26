@@ -1,51 +1,63 @@
 'use client'
+import beltData from '@/data/belt_data.json';
 import styles from "./Recommendation.module.css";
+import { getCanonicalBeltKey } from '@/lib/utils';
 
 export default function Recommendation({ recommendation }) {
   // Destructure the recommendation object for easier access
-  const { belt, description, strengths, areasForImprovement, nextSteps } = recommendation;
+  const canonicalKey = getCanonicalBeltKey(recommendation);
+  const data = canonicalKey ? beltData[canonicalKey] : null;
+  console.log(data)
 
   return (
     <div className={styles.recommendationContainer}>
+      {data.icon && (
+        <img
+          src={data.icon}
+          alt={`${data.title} icon`}
+          className={styles.beltIcon}
+        />
+      )}
       <div className={styles.header}>
-        <h2 className={styles.title}>Your iCode Program Recommendation</h2>
+        <h2 className={styles.title}>Codie's Recommendation!</h2>
       </div>
 
       <div className={styles.beltRecommendation}>
-        <span className={styles.beltLabel}>Recommended Belt: {recommendation}</span>
-        <span className={styles[`belt_${belt?.toLowerCase().replace(/\s+/g, '')}`]}>{belt}</span>
+        <span className={styles.beltLabel}>{data.title}:</span>
+        <span className={styles.beltSubtitle}><i>{data.subtitle}</i></span>
       </div>
-
-      <p className={styles.description}>{description}</p>
 
       <div className={styles.detailsGrid}>
         <div className={styles.strengths}>
           <h3 className={styles.subtitle}>In this belt you will:</h3>
           <ul>
-            {strengths?.map((strength, index) => (
-              <li key={index}>{strength}</li>
+            {data.inThisBelt?.map((item, index) => (
+              <li key={index}>{item}</li>
             ))}
           </ul>
         </div>
 
         <div className={styles.areasForImprovement}>
-          <h3 className={styles.subtitle}>Key outcomes of {recommendation}:</h3>
+          <h3 className={styles.subtitle}>Key outcomes of {data.title}:</h3>
           <ul>
-            {areasForImprovement?.map((area, index) => (
-              <li key={index}>{area}</li>
+            {data.keyOutcomes?.map((outcome, index) => (
+              <li key={index}>{outcome}</li>
             ))}
           </ul>
         </div>
       </div>
 
       <div className={styles.nextSteps}>
-        <h3 className={styles.subtitle}>Recommendations to prepare:</h3>
-        <p>{nextSteps}</p>
-      </div>
-      <div className={styles.learnMoreContainer}>
-            <button className="btn primary-button">
-                Learn More
-            </button>
+        <h3 className={styles.subtitle}>Recommendations to Prepare:</h3>
+        <ul className={styles.recommendationList}>
+          {data.recommendations?.map((recommendation, index) => (
+            <li key={index} className={styles.recommendationItem}>
+              <a href={recommendation.url} target="_blank" rel="noopener noreferrer" className={styles.recommendationLink}>
+                {recommendation.text}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

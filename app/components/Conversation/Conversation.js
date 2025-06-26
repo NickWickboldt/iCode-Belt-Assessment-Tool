@@ -10,7 +10,7 @@ import styles from "./Conversation.module.css";
 export function Conversation({ addMessage, isOpen }) {
   const [transcript, setTranscript] = useState("");
   const [isRecommendation, setIsRecommendation] = useState(false);
-  const [recommendation, setRecommendation] = useState('Foundation Belt');
+  const [recommendation, setRecommendation] = useState('');
   const [isStarting, setIsStarting] = useState(false);
   const [error, setError] = useState(null);
 
@@ -107,9 +107,8 @@ export function Conversation({ addMessage, isOpen }) {
           <p>Codie is {conversation.isSpeaking ? "speaking" : "listening"}</p>
         </div>
       </div>
+      {isRecommendation ? <Recommendation recommendation={recommendation}/> : <></>}
       <Subtitles text={transcript} />
-      {isRecommendation ? <Recommendation recommendation={recommendation} /> : <Recommendation recommendation={recommendation} />}
-
     </div>
   );
 }

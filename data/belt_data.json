@@ -1,0 +1,620 @@
+{
+  "jr-stem": {
+    "title": "STEM Jr Belt",
+    "subtitle": "STEM Fundamentals",
+    "icon": "/icons/STEM-Jr-Belt.webp",
+    "keyConcepts": [
+      "Programming: VEX 123",
+      "Robotics",
+      "Scientific Method",
+      "Creative Arts and Digital Literacy",
+      "Engineering Design Process",
+      "Keyboarding",
+      "Reading and Writing",
+      "Addition and Subtraction"
+    ],
+    "sprints": [
+      "Jungle Safari Adventures",
+      "Galactic Explorers",
+      "Dino Fossil-Find Expedition",
+      "Quest for Knowledge",
+      "Sports Champion Challenge",
+      "Melody Makers",
+      "Ocean Adventure Dive",
+      "STEAM Problem Mystery",
+      "Innovation Station"
+    ],
+    "softSkills": [
+      "Team Collaboration",
+      "Critical Thinking",
+      "Adaptability",
+      "Classroom Attendance",
+      "Communication"
+    ],
+    "outcomes": [
+      "Enhanced Critical Thinking",
+      "Improved Problem-Solving Skills"
+    ],
+    "inThisBelt":[
+        "Learn about robotics.",
+        "Learn about algorithms in Robotics.",
+        "Use the Scientific Method.",
+        "Apply engineering principles to design and build mechanical devices.",
+        "Design and construct innovative projects."
+    ],
+    "keyOutcomes":[
+        "Gaining foundational knowledge in robotics.",
+        "Learning algorithms specific to robotics.",
+        "Utilizing the Scientific Method.",
+        "Applying engineering principles to design and build mechanical devices.",
+        "Designing and constructing innovative projects."
+    ],
+    "importance": "In today’s digital age, teaching kids technology is more important than ever. It provides them with the tools they need to navigate and succeed in a world that is increasingly shaped by technological advancements. Learning technology fosters essential skills like problem-solving, creativity, and critical thinking, as kids are encouraged to explore, innovate, and build solutions to real-world challenges.",
+    "recommendations": [
+        {
+            "text": "TypingClub: A free, customizable typing program that uses animations and games to teach kids proper keyboarding skills.",
+            "url": "https://www.typingclub.com"
+        },
+        {
+            "text": "NitroType: A typing game where kids can compete in races while improving their typing speed and accuracy. Suitable for children of all skill levels.",
+            "url": "https://www.nitrotype.com"
+        },
+        {
+            "text": "Typing.com: Offers free typing lessons and games designed for younger kids, focusing on improving speed and accuracy through fun exercises.",
+            "url": "https://www.typing.com"
+        }
+    ]
+  },
+  "foundation": {
+    "title": "Foundation Belt",
+    "subtitle": "Basic Game Development",
+    "icon": "/icons/foundation-belt.webp",
+    "keyConcepts": [
+      "Programming: Scratch 3",
+      "Computer Basics",
+      "Agile Methodologies"
+    ],
+    "sprints": [
+      "Computer Foundations",
+      "Introduction to Programming with Scratch",
+      "Computational Thinking",
+      "Advanced Scratch Programming",
+      "Digital Logic",
+      "Exploring Professions",
+      "Exploring Professions II",
+      "Hands on Scratch",
+      "Final Project"
+    ],
+    "softSkills": [
+      "Critical Thinking",
+      "Project Management",
+      "Planning and Design"
+    ],
+    "outcomes": [
+      "Customized Game"
+    ],
+    "inThisBelt":[
+        "Learn animation and game development in Scratch. ",
+        "Experience different career paths.",
+        "Learn about algorithms. ",
+        "Learn how to create interactive games with the use of hardware.  "    
+    ],
+    "keyOutcomes":[
+        "Learning animation and game development using Scratch.",
+        "Exploring various career paths.",
+        "Gaining an understanding of algorithms.",
+        "Creating interactive games with the integration of hardware."
+    ],
+    "importance": "Learning blocks of code is crucial for kids as it introduces them to the fundamentals of programming in a visual, intuitive way. Block-based coding platforms, like Scratch, help children grasp key concepts like loops, conditionals, and variables without the complexity of text-based code. This approach fosters problem-solving and logical thinking, allowing kids to experiment with creating games, animations, and interactive projects. As they learn to break down tasks and build solutions step by step, they develop critical computational skills that form a strong foundation for more advanced coding languages, setting them up for success in the digital world.",
+    "recommendations": [
+        {
+            "text": "TypingClub: A free, customizable typing program that uses animations and games to teach kids proper keyboarding skills.",
+            "url": "https://www.typingclub.com"
+        },
+        {
+            "text": "NitroType: A typing game where kids can compete in races while improving their typing speed and accuracy. Suitable for children of all skill levels.",
+            "url": "https://www.nitrotype.com"
+        },
+        {
+            "text": "Typing.com: Offers free typing lessons and games designed for younger kids, focusing on improving speed and accuracy through fun exercises.",
+            "url": "https://www.typing.com"
+        }
+    ]
+  },
+  "white": {
+    "title": "White Belt",
+    "subtitle": "Robotics and Programming",
+    "icon": "/icons/white-belt.webp",
+    "keyConcepts": [
+      "Programming: VEX Code",
+      "Robotics with VEX IQ",
+      "Engineering Design Process",
+      "3D Modeling",
+      "3D Printing",
+      "Electricity",
+      "Art of Design"
+    ],
+    "sprints": [
+      "Robotic Fundamentals",
+      "Robotics with VEX IQ",
+      "Advanced Robotics",
+      "3D Modeling",
+      "Midterm Robotics Project",
+      "Electricity",
+      "Electricity II",
+      "Engineering Design",
+      "Final Project"
+    ],
+    "softSkills": [
+      "Team Collaboration",
+      "Project Development and Ideation",
+      "Fine Motor Skills and Coordination",
+      "Critical Thinking"
+    ],
+    "outcomes": [
+      "3D Printed Innovation",
+      "Robot Design Solution"
+    ],
+    "inThisBelt":[
+        "Learn Robotics using VEX IQs.",
+        "Develop a variety of Robots.",
+        "Make 3D printing projects."
+    ],
+    "keyOutcomes":[
+        "Learn Robotics using VEX IQs.",
+        "Develop a variety of Robots.",
+        "Make 3D printing projects."
+    ],
+    "importance": "Learning robotics and 3D printing is important for kids as it offers hands-on experience in technology and engineering, fostering critical thinking, problem-solving, and creativity. Robotics teaches children how to design, build, and program machines, helping them understand real-world applications of math, science, and engineering principles. 3D printing allows kids to bring their ideas to life by creating physical objects from digital designs, enhancing their spatial awareness and creativity. Both fields encourage innovation and collaboration, preparing children for future careers in STEM, while also helping them develop a deeper understanding of how technology shapes the world around them.",
+    "recommendations": [
+        {
+            "text": "TypingClub: A free, customizable typing program that uses animations and games to teach kids proper keyboarding skills.",
+            "url": "https://www.typingclub.com"
+        },
+        {
+            "text": "NitroType: A typing game where kids can compete in races while improving their typing speed and accuracy. Suitable for children of all skill levels.",
+            "url": "https://www.nitrotype.com"
+        },
+        {
+            "text": "Typing.com: Offers free typing lessons and games designed for younger kids, focusing on improving speed and accuracy through fun exercises.",
+            "url": "https://www.typing.com"
+        }
+    ]
+  },
+  "gray": {
+    "title": "Gray Belt",
+    "subtitle": "Minecraft and Roblox",
+    "icon": "/icons/gray-belt.webp",
+    "keyConcepts": [
+      "Programming: MakeCode and Lua",
+      "Transition to Text-Based Coding",
+      "Digital Citizenship",
+      "Game Design Principles",
+      "3D Modeling",
+      "User Interface (UI) Design"
+    ],
+    "sprints": [
+      "Introduction to Minecraft and programming",
+      "Intermediate programming concepts",
+      "Advanced programming concepts",
+      "From Blocks to Code",
+      "Roblox Digital Citizenship and World Building",
+      "Game Design for Roblox and Lua programming",
+      "Game Design for Roblox and Lua programming II",
+      "Adding Features",
+      "Final Project"
+    ],
+    "softSkills": [
+      "Team Collaboration",
+      "Problem-Solving",
+      "Creativity",
+      "Time Management",
+      "Adaptability",
+      "Critical Thinking"
+    ],
+    "outcomes": [
+      "Custom Blocks in Minecraft",
+      "Custom Roblox game"
+    ],
+    "inThisBelt":[
+        "Learn to design and script interactive games in Roblox Studio.",
+        "Create custom animations and models for games.",
+        "Learning animation and game development for Roblox." 
+    ],
+    "keyOutcomes":[
+        "Designing and scripting interactive games in Roblox Studio.",
+        "Creating custom animations and models for game environments.",
+        "Gaining skills in animation and game development specifically for Roblox."
+    ],
+    "importance": "Learning game design is a valuable aspect of kids' education as it fosters creativity, problem-solving, and critical thinking. Through game design, children are introduced to concepts like storytelling, visual design, and programming, which help them develop both technical and artistic skills. It encourages them to think analytically by creating rules, mechanics, and interactions that make games engaging and functional. Additionally, game design teaches collaboration and communication as kids often work in teams to bring their ideas to life. This holistic approach to learning prepares children for future careers in technology, design, and creative industries while enhancing their ability to think innovatively.",
+    "recommendations": [
+        {
+            "text": "TypingClub: A free, customizable typing program that uses animations and games to teach kids proper keyboarding skills.",
+            "url": "https://www.typingclub.com"
+        },
+        {
+            "text": "NitroType: A typing game where kids can compete in races while improving their typing speed and accuracy. Suitable for children of all skill levels.",
+            "url": "https://www.nitrotype.com"
+        },
+        {
+            "text": "Typing.com: Offers free typing lessons and games designed for younger kids, focusing on improving speed and accuracy through fun exercises.",
+            "url": "https://www.typing.com"
+        }
+    ]
+  },
+  "orange": {
+    "title": "Orange Belt",
+    "subtitle": "Web Development",
+    "icon": "/icons/orange-belt.webp",
+    "keyConcepts": [
+      "Programming: HTML, CSS, and JS",
+      "Web Development and Design",
+      "Graphic Design",
+      "Databases",
+      "Photography",
+      "Visual Studio"
+    ],
+    "sprints": [
+      "Web Development I",
+      "Web Development II",
+      "Photography I",
+      "JavaScript I",
+      "Midterm",
+      "Graphic Design",
+      "Databases",
+      "Web Hosting",
+      "Final Project"
+    ],
+    "softSkills": [
+      "Creativity",
+      "Critical Thinking",
+      "Writing Reports and Proposals"
+    ],
+    "outcomes": [
+      "Development of a Dynamic Website",
+      "Photography Portfolio"
+    ],
+    "inThisBelt":[
+        "Learn how to design a website in HTML and CSS.",
+        "Learn about programming in Javascript and PHP.",
+        "Learn how to integrate a simple database into a website.", 
+        "Utilized technology and art to create a unique website and user experience."  
+    ],
+    "keyOutcomes":[
+        "Learning to design websites using HTML and CSS.",
+        "Gaining knowledge of programming in JavaScript and PHP.",
+        "Understanding how to integrate a basic database into a website.",
+        "Combining technology and art to create a unique website and user experience."
+    ],
+    "importance": "Teaching web development to kids is crucial in today’s digital age, as it equips them with essential skills for the future. By learning to code in languages like HTML, CSS, and JavaScript, children develop problem-solving and logical thinking abilities while gaining a practical understanding of technology. Web development also fosters creativity, allowing kids to design and build their own projects, turning their ideas into functional websites. Additionally, it introduces them to how the Internet and online platforms work, providing them with a deeper comprehension of the digital world. These skills not only prepare kids for future careers in technology but also enhance their ability to think critically and innovate in an increasingly digital environment.",
+    "recommendations": [
+        {
+            "text": "TypingClub: A free, customizable typing program that uses animations and games to teach kids proper keyboarding skills.",
+            "url": "https://www.typingclub.com"
+        },
+        {
+            "text": "NitroType: A typing game where kids can compete in races while improving their typing speed and accuracy. Suitable for children of all skill levels.",
+            "url": "https://www.nitrotype.com"
+        },
+        {
+            "text": "Typing.com: Offers free typing lessons and games designed for younger kids, focusing on improving speed and accuracy through fun exercises.",
+            "url": "https://www.typing.com"
+        }
+    ]
+  },
+  "yellow": {
+    "title": "Yellow Belt",
+    "subtitle": "Mobile App Development",
+    "icon": "/icons/yellow-belt.webp",
+    "keyConcepts": [
+      "Programming: C# and XML",
+      "Mobile App Development",
+      ".Net MAUI",
+      "Mobile App Development",
+      "Mobile App Design"
+    ],
+    "sprints": [
+      "Introduction to App Development",
+      "App Design Principles of XML",
+      "Game Creation in C#",
+      "Midterm",
+      "Data Handling and Management",
+      "Working with APIs",
+      "Creative Entrepreneurship and Marketing Basics",
+      "Product Development Basics",
+      "Final Project"
+    ],
+    "softSkills": [
+      "Entrepreneurship",
+      "Visual Communication",
+      "Innovation",
+      "Storytelling"
+    ],
+    "outcomes": [
+      "Development of Customized App",
+      "Launch a Mobile Application"
+    ],
+    "inThisBelt":[
+        "Learn app development in a new technology.",
+        "Learn about programming in C# and scripting in XAML.", 
+        "Learn how to integrate a database into an application.", 
+        "Create applications that deliver useful information and exciting user experiences.",   
+        "Dive deep into a tech-stack from top to bottom."
+    ],
+    "keyOutcomes":[
+        "Learn app development in a new technology.",
+        "Learn about programming in C# and scripting in XAML.", 
+        "Learn how to integrate a database into an application.", 
+        "Create applications that deliver useful information and exciting user experiences.",   
+        "Dive deep into a tech-stack from top to bottom."
+    ],
+    "importance": "App development is an important part of kids' education as it encourages critical thinking, problem-solving, and creativity while introducing them to real-world technology skills. Through app development, children learn to code, design user interfaces, and understand how mobile applications function. This hands-on experience fosters computational thinking and helps them break down complex problems into manageable steps. It also empowers them to create their own solutions to everyday challenges, boosting their confidence and innovation.",
+    "recommendations": [
+        {
+            "text": "TypingClub: A free, customizable typing program that uses animations and games to teach kids proper keyboarding skills.",
+            "url": "https://www.typingclub.com"
+        },
+        {
+            "text": "NitroType: A typing game where kids can compete in races while improving their typing speed and accuracy. Suitable for children of all skill levels.",
+            "url": "https://www.nitrotype.com"
+        },
+        {
+            "text": "Typing.com: Offers free typing lessons and games designed for younger kids, focusing on improving speed and accuracy through fun exercises.",
+            "url": "https://www.typing.com"
+        }
+    ]
+  },
+  "green": {
+    "title": "Green Belt",
+    "subtitle": "Python, Drones, and ChatGPT",
+    "icon": "/icons/green-belt.webp",
+    "keyConcepts": [
+      "Programming: Python 3",
+      "Data Science",
+      "Machine Learning",
+      "Microcontrollers",
+      "Electrical Engineering",
+      "Engineering Design Process",
+      "Introduction to OOP"
+    ],
+    "sprints": [
+      "Introduction to Python with Drones",
+      "Advanced Drone Programming",
+      "Algorithms in Python",
+      "Data Science",
+      "Intro to OOP in Python",
+      "Machine Learning and AI",
+      "Arduino",
+      "Arduino II",
+      "Arduino III"
+    ],
+    "softSkills": [
+      "Multitasking",
+      "Planning",
+      "Strategic Design",
+      "Strategic Planning"
+    ],
+    "outcomes": [
+      "Automated Drones",
+      "Electrical Engineering Solutions"
+    ],
+    "inThisBelt":[
+        "Combine coding with real-world applications, like controlling drones or building robots.",
+        "Learn Python as a versatile language for data science, AI, and machine learning.",
+        "Gain experience in programming microcontrollers and developing circuit projects.", 
+        "Exploring the fields of AI, robotics, and electronics in a hands-on and engaging manner."
+    ],
+    "keyOutcomes":[
+        "Combining coding with real-world applications, such as controlling drones or building robots.",
+        "Learning Python, a versatile language for data science, AI, and machine learning.",
+        "Gaining experience in programming microcontrollers and developing circuit-based projects.",
+        "Exploring AI, robotics, and electronics through hands-on, engaging projects."
+    ],
+    "importance": "Learning Python is an essential skill for kids in today’s technology-driven world. As one of the most versatile and beginner-friendly programming languages, Python offers a gentle introduction to coding with its simple and easy-to-read syntax. This allows young learners to focus on developing problem-solving and logical thinking skills without being bogged down by complex code structures. Beyond its accessibility, Python is widely used in a range of industries, including web development, data science, artificial intelligence, and automation, making it a valuable tool for future career opportunities. ",
+    "recommendations": [
+        {
+            "text": "TypingClub: A free, customizable typing program that uses animations and games to teach kids proper keyboarding skills.",
+            "url": "https://www.typingclub.com"
+        },
+        {
+            "text": "NitroType: A typing game where kids can compete in races while improving their typing speed and accuracy. Suitable for children of all skill levels.",
+            "url": "https://www.nitrotype.com"
+        },
+        {
+            "text": "Typing.com: Offers free typing lessons and games designed for younger kids, focusing on improving speed and accuracy through fun exercises.",
+            "url": "https://www.typing.com"
+        }
+    ]
+  },
+  "red": {
+    "title": "Red Belt",
+    "subtitle": "Game Development with UE5",
+    "icon": "/icons/red-belt.webp",
+    "keyConcepts": [
+      "Programming: UE5 Blueprints",
+      "Unreal Engine 5",
+      "Game Development",
+      "Artistic Game Design",
+      "Audio and Video Generation"
+    ],
+    "sprints": [
+      "Game Design in Unreal Engine",
+      "Blueprint Scripting",
+      "Level Design and Material Editor",
+      "Adding Custom Content",
+      "Cinematic Sequences",
+      "Final Project Phase 1",
+      "Final Project Phase 2",
+      "Final Project Phase 3",
+      "Final Project Phase 4"
+    ],
+    "softSkills": [
+      "Creativity",
+      "Critical Thinking",
+      "Planning",
+      "Collaboration"
+    ],
+    "outcomes": [
+      "Ready for Release Unreal Engine 5 Game"
+    ],
+    "inThisBelt":[
+        "Develop both single and multiplayer video games.",
+        "Understand 2D and 3D stop motion, including storytelling, materials, lighting, and sound effects.",
+        "Master the visual scripting system to create game logic and interactivity, including loops, boolean variables, collision detection, and HUD elements.",
+        "Understand cinematics' role in storytelling, and learn about camera movements, shots, and lighting to create compelling narratives within games.",
+        "Develop skills in project planning, iteration through playtesting, and preparing games for public release on platforms like itch.io."
+    ],
+    "keyOutcomes":[
+        "Develop both single and multiplayer video games.",
+        "Understand 2D and 3D stop motion, including storytelling, materials, lighting, and sound effects.",
+        "Master the visual scripting system to create game logic and interactivity, including loops, boolean variables, collision detection, and HUD elements.",
+        "Understand cinematics' role in storytelling, and learn about camera movements, shots, and lighting to create compelling narratives within games.",
+        "Develop skills in project planning, iteration through playtesting, and preparing games for public release on platforms like itch.io."
+    ],
+    "importance": "Learning Unreal Engine is a valuable skill for kids as it offers an immersive introduction to game development, 3D design, and interactive digital experiences. With its robust set of tools, Unreal Engine allows young learners to create their own games, animations, and virtual environments, all while developing critical skills like problem-solving, creativity, and logical thinking. Its visual scripting system, Blueprints, makes it accessible for beginners, allowing them to build complex projects without needing extensive coding knowledge. Beyond gaming, Unreal Engine is widely used in industries such as architecture, film, and simulation, making it a versatile platform for exploring various career paths. ",
+    "recommendations": [
+        {
+            "text": "TypingClub: A free, customizable typing program that uses animations and games to teach kids proper keyboarding skills.",
+            "url": "https://www.typingclub.com"
+        },
+        {
+            "text": "NitroType: A typing game where kids can compete in races while improving their typing speed and accuracy. Suitable for children of all skill levels.",
+            "url": "https://www.nitrotype.com"
+        },
+        {
+            "text": "Typing.com: Offers free typing lessons and games designed for younger kids, focusing on improving speed and accuracy through fun exercises.",
+            "url": "https://www.typing.com"
+        }
+    ]
+  },
+  "blue": {
+    "title": "Blue Belt",
+    "subtitle": "Networking and Cybersecurity",
+    "icon": "/icons/blue-belt.webp",
+    "keyConcepts": [
+      "Programming: BASH and Python",
+      "OSI and TCP/IP Models",
+      "UNIX and Linux",
+      "Information Technology",
+      "Information Security",
+      "Internet of Things (IoT)",
+      "System Architecture"
+    ],
+    "sprints": [
+      "Unix/Linux",
+      "Informational Security",
+      "Information Security",
+      "Hackathon Fundamentals",
+      "Mock Hackathons",
+      "Block Chain",
+      "IOT",
+      "Embedded Systems",
+      "Final Project"
+    ],
+    "softSkills": [
+      "Troubleshooting",
+      "Problem-Solving",
+      "Critical Thinking",
+      "Team Collaboration",
+      "Communication",
+      "Project Management"
+    ],
+    "outcomes": [
+      "Complex embedded projects using Arduino"
+    ],
+    "inThisBelt":[
+        "Learn various network hardware (hubs/switches/routers).",
+        "Learn about multiple types of network attacks.",
+        "Learn about ethical hacking.",
+        "Learn about private versus public clouds.",
+        "Practice creating complex embedded systems."
+    ],
+    "keyOutcomes":[
+        "Understanding various network hardware such as hubs, switches, and routers.",
+        "Gaining knowledge about different types of network attacks.",
+        "Learning the fundamentals of ethical hacking.",
+        "Exploring the differences between private and public cloud systems.",
+        "Practicing the creation of complex embedded systems."
+    ],
+    "importance": "Learning computer networking is a crucial skill for kids as it provides a deeper understanding of how the digital world functions. Networking forms the backbone of modern communication, enabling devices to share information and connect seamlessly across the globe. By understanding concepts such as network hardware, data transmission, and Internet infrastructure, kids develop strong problem-solving and analytical skills. It also introduces them to cybersecurity, helping them understand how to protect systems from potential threats. Learning computer networking opens doors to future opportunities in technology fields such as IT, cybersecurity, and cloud computing, equipping children with the technical knowledge needed to navigate and thrive in a highly connected world.",
+    "recommendations": [
+        {
+            "text": "TypingClub: A free, customizable typing program that uses animations and games to teach kids proper keyboarding skills.",
+            "url": "https://www.typingclub.com"
+        },
+        {
+            "text": "NitroType: A typing game where kids can compete in races while improving their typing speed and accuracy. Suitable for children of all skill levels.",
+            "url": "https://www.nitrotype.com"
+        },
+        {
+            "text": "Typing.com: Offers free typing lessons and games designed for younger kids, focusing on improving speed and accuracy through fun exercises.",
+            "url": "https://www.typing.com"
+        }
+    ]
+  },
+  "black": {
+    "title": "Black Belt",
+    "subtitle": "Web Apps with Java",
+    "icon": "/icons/black-belt.webp",
+    "keyConcepts": [
+      "Programming: Java and SQL",
+      "Unified Modeling Language (UML)",
+      "Security Implementation",
+      "Software Integration",
+      "Web Applications",
+      "REST Architecture",
+      "Software Architecture"
+    ],
+    "sprints": [
+      "Introduction to Java",
+      "Java OOP",
+      "Jumping into the Web",
+      "Crafting Relationships with a Workbench",
+      "Improving the Display",
+      "The Beginning of Something Big",
+      "Designing like a Pro",
+      "Interactivity 2.0",
+      "Final Project"
+    ],
+    "softSkills": [
+      "Strategic Planning",
+      "Team Collaboration",
+      "Problem Solving",
+      "Time Management"
+    ],
+    "outcomes": [
+      "Design and develop an industry aligned web application"
+    ],
+    "inThisBelt":[
+        "Understand and applying algorithms and data structures.",
+        "Explore Object-Oriented Programming (OOP) principles.",
+        "Build interactive web applications and games.",
+        "Learn version control systems like Git and collaborating on coding projects.",
+        "Dive into database management and CRUD operations.",
+        "Engage with Artificial Intelligence and machine learning basics." 
+    ],
+    "keyOutcomes":[
+        "Understanding and applying algorithms and data structures.",
+        "Exploring Object-Oriented Programming (OOP) principles.",
+        "Building interactive web applications and games.",
+        "Learning version control systems, such as Git, and collaborating on coding projects.",
+        "Gaining experience with database management and CRUD operations.",
+        "Engaging with the basics of Artificial Intelligence and machine learning."
+    ],
+    "importance": "Teaching kids Java application programming equips them with valuable problem-solving and logical thinking skills while introducing them to one of the most widely used and versatile programming languages. Java provides a strong foundation in object-oriented programming (OOP) principles, which are essential for understanding other languages. It allows students create real-world applications, games, and mobile apps, making learning practical and engaging. Early exposure to Java opens up future opportunities in tech fields and fosters creativity by empowering kids to develop their own projects and solutions, preparing them for a technology-driven world.",
+    "recommendations": [
+        {
+            "text": "TypingClub: A free, customizable typing program that uses animations and games to teach kids proper keyboarding skills.",
+            "url": "https://www.typingclub.com"
+        },
+        {
+            "text": "NitroType: A typing game where kids can compete in races while improving their typing speed and accuracy. Suitable for children of all skill levels.",
+            "url": "https://www.nitrotype.com"
+        },
+        {
+            "text": "Typing.com: Offers free typing lessons and games designed for younger kids, focusing on improving speed and accuracy through fun exercises.",
+            "url": "https://www.typing.com"
+        }
+    ]
+  }
+}

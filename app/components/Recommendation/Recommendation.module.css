@@ -6,16 +6,28 @@
     border-radius: 10px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     padding: 4vmin;
-    width: 60%; 
-    height: 80%; 
+    width: 80%; 
+    min-height: 60; 
+    height: fit-content; 
+    overflow-y: scroll;
+    max-height: 80%; 
     margin: 2rem auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border-left: 8px solid #007bff; 
+    border-left: 8px solid var(--pace); 
     position: absolute;
     left:50%; 
     top:50%;
     transform: translate(-50%, -50%);
     z-index: 1000; 
+    scrollbar-width: none;
+}
+
+.beltIcon {
+    position: absolute;
+    top: 1vmin; /* Adjust as needed */
+    left: 1vmin; /* Position it slightly outside the main padding */
+    background-color: transparent; /* Give it a solid background */
+    width: 12vmin;
 }
 
 .header {
@@ -26,7 +38,7 @@
 }
 
 .title {
-    color: #333;
+    color: var(--designer-black);
     font-size: 1.8rem;
     font-weight: 700;
 }
@@ -43,40 +55,19 @@
 }
 
 .beltLabel {
-    font-size: 1.2rem;
+    font-size: 2.5vmin;
     font-weight: 600;
-    color: #555;
+    color: var(--designer-black);
 }
 
 /* --- Dynamic Belt Styles --- */
 /* Add styles for each iCode belt color */
-.belt_white, .belt_yellow, .belt_orange, .belt_green, .belt_blue, .belt_purple, .belt_brown, .belt_black {
-    padding: 0.5rem 1.5rem;
+.beltSubtitle {
     border-radius: 20px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #fff;
+    font-size: 2.5vmin;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
-.belt_white { background-color: #e0e0e0; color: #333; }
-.belt_yellow { background-color: #ffc107; }
-.belt_orange { background-color: #fd7e14; }
-.belt_green { background-color: #28a745; }
-.belt_blue { background-color: #007bff; }
-.belt_purple { background-color: #6f42c1; }
-.belt_brown { background-color: #a52a2a; }
-.belt_black { background-color: #343a40; }
-/* --- End Belt Styles --- */
-
-
-.description {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #444;
-    text-align: center;
-    margin-bottom: 2.5rem;
-}
 
 .detailsGrid {
     display: grid;
@@ -88,7 +79,7 @@
 .subtitle {
     font-size: 1.3rem;
     font-weight: 600;
-    color: #007bff;
+    color: var(--pace);
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid #eee;
@@ -118,26 +109,74 @@
 
 .strengths li::before {
     content: '✔';
-    color: #28a745; /* Green checkmark */
+    color: var(--green-belt); /* Green checkmark */
 }
 
 .areasForImprovement li::before {
     content: '➤';
-    color: #fd7e14; /* Orange arrow */
+    color: var(--orange-belt); /* Orange arrow */
 }
 
+/* Styling for the main container */
 .nextSteps {
-    background-color: #e9f5ff;
-    border: 1px solid #cce4ff;
-    border-radius: 8px;
-    padding: 1.5rem;
+  background-color: #f8f9fa; /* A light, neutral background */
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-top: 2rem;
+  border: 1px solid #e9ecef; /* A subtle border */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.nextSteps p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #333;
-    margin: 0;
+/* Styling for the unordered list */
+.recommendationList {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+/* Styling for each list item */
+.recommendationItem {
+  margin-bottom: 0.75rem;
+}
+
+.recommendationItem:last-child {
+  margin-bottom: 0;
+}
+
+/* Styling for the links - the most important part */
+.recommendationLink {
+  display: block; /* Makes the entire area clickable */
+  padding: 1rem 1.25rem;
+  background-color: #ffffff;
+  color: #495057;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  transition: all 0.2s ease-in-out;
+  font-weight: 500;
+}
+
+/* Add a hover effect for interactivity */
+.recommendationLink:hover {
+  color: var(--pace); /* A primary color for the link text */
+  border-color: var(--pace);
+  background-color: #e9f5ff; /* A light blue background on hover */
+  transform: translateY(-2px); /* A subtle lift effect */
+  box-shadow: 0 6px 16px rgba(0, 123, 255, 0.15);
+}
+
+/* Add a right-arrow pseudo-element for a visual cue */
+.recommendationLink::after {
+  content: '→';
+  float: right;
+  font-weight: bold;
+  opacity: 0.6;
+  transition: all 0.2s ease-in-out;
+}
+
+.recommendationLink:hover::after {
+  opacity: 1;
+  transform: translateX(4px);
 }
 
 .learnMoreContainer {
