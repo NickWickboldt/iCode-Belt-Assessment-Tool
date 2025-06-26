@@ -37,10 +37,11 @@ export default function Home() {
 
   //   checkAndRequestMic();
   // }, []); // empty deps = run once on mount
+
   return (
     <div >
       <Navbar setShowChatLog={setShowChatLog} />
-      {showChatLog && <ChatLog messages={messages} />}
+      <ChatLog messages={messages} isOpen={showChatLog} />
 
       <div className="main-content-wrapper">
         <Codie top={"45%"} left={"50%"} />

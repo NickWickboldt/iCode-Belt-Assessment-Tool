@@ -63,7 +63,7 @@ a {
 }
 
 .div-container{
-  background-color: var(--modal-bg);
+  background-color: white;
   box-shadow: var(--shadow-modal);
   border-radius: 10px;
   padding: 2vmin;

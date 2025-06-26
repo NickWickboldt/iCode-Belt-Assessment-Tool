@@ -23,12 +23,17 @@ export function Conversation({ addMessage }) {
     onConnect: () => console.log("Connected"),
     onDisconnect: () => console.log("Disconnected"),
     onMessage: (msg) => {
-      console.log('message coming in',msg)
       let payload = typeof msg === "string" ? JSON.parse(msg) : msg;
       const text = payload.text ?? payload.message ?? "";
       console.log(text);
       setTranscript(text);
-      addMessage({ sender: "ai", text });
+      if(payload.source == 'user')
+      {
+        addMessage({ sender: "user", text });
+      }else{
+        addMessage({ sender: "ai", text });
+      }
+      
     },
     onError: (err) => console.error("Error:", err),
   });
