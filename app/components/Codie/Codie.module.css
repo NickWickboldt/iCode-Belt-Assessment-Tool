@@ -4,25 +4,30 @@
 .codieContainer {
   position: absolute;
   z-index: 10; /* Ensures Codie appears above most other content */
-  
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translate(50%, -50%);
+  /* transform: translate(50%, -50%); */
+  animation: float 2s ease-in-out infinite;
 }
 
+
+
 /* A subtle animation to make Codie feel more dynamic and less static */
-/* @keyframes float {
+@keyframes float {
   0% {
-    transform: translateY(0px);
+    /* center + no vertical offset */
+    transform: translate(-50%, -50%) translateY(0);
   }
   50% {
-    transform: translateY(-15px);
+    /* center + 15px up */
+    transform: translate(-50%, -50%) translateY(-15px);
   }
   100% {
-    transform: translateY(0px);
+    /* back to center */
+    transform: translate(-50%, -50%) translateY(0);
   }
-} */
+}
 
 /* Styling for the image itself */
 .codieImage {

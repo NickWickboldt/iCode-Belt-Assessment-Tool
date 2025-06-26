@@ -23,7 +23,7 @@ export function Conversation({ addMessage }) {
     onConnect: () => console.log("Connected"),
     onDisconnect: () => console.log("Disconnected"),
     onMessage: (msg) => {
-      // parse if it’s a JSON string, else use it directly
+      console.log('message coming in',msg)
       let payload = typeof msg === "string" ? JSON.parse(msg) : msg;
       const text = payload.text ?? payload.message ?? "";
       console.log(text);
