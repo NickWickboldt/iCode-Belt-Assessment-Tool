@@ -20,7 +20,7 @@ export default function ChatLog({ messages, isOpen }) {
       <div className={`div-container ${styles.container}`} ref={containerRef}>
         {messages.length === 0 ? (
           <p className={styles.placeholder}>
-            No chat log yet — Press on 'Start Assessment' to begin.
+            {"No chat log yet — Press on 'Start Assessment' to begin."}
           </p>
         ) : (
           messages.map((msg, i) => (
