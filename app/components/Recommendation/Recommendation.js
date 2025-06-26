@@ -23,9 +23,29 @@ export default function Recommendation({ recommendation, retakeAssessment }) {
     return null;
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // you could also grab form values here…
+    const form = e.target
+    const name = form.name.value;
+    const email = form.email.value;
+    const phone = form.phone.value;
+    const url = window.location.href;
+
+    try {
+      const response = await fetch(
+        'https://nicholaswickboldt.app.n8n.cloud/webhook-test/recieve-emails',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, phone, url, data })
+        }
+      )
+      if (!response.ok) {
+        console.error('Failed to send data:', response.statusText)
+      }
+    } catch (err) {
+      console.error('Error sending data:', err)
+    }
     setShowForm(false)
   }
 
@@ -37,15 +57,15 @@ export default function Recommendation({ recommendation, retakeAssessment }) {
             <h3 className='header-title'>Enter your details to unlock Codie’s recommendation</h3>
             <div className={`input-container`}>
               <label>Name</label>
-              <input type="text" required />
+              <input type="text" id="name" name="name" required />
             </div>
             <div className={`input-container`}>
               <label>Email</label>
-              <input type="email" required />
+              <input type="email" id="email" name="email" required />
             </div>
             <div className={`input-container`}>
               <label>Phone</label>
-              <input type="tel" required />
+              <input type="tel" id="phone" name="phone" required />
             </div>
             <button type="submit" className={`${styles.formBtn} btn primary-button`}>
               Submit
