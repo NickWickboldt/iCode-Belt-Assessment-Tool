@@ -2,13 +2,13 @@
   width: 60vmin;
   height: 80vmin;
   position: absolute;
-  right: 0;
+  right: 1vmin;
   bottom: 50%;
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translateX(100%) translateY(50%);
+  transform: translateX(102%) translateY(50%);
   transition: transform 0.3s ease-in-out;
 }
 .wrapperOpen {
