@@ -1,14 +1,16 @@
 .wrapper {
-  width: 60vmin;
+  width: 60vmin; 
   height: 80vmin;
   position: absolute;
+   transform: translateX(102%) translateY(50%);
+  /* changing right will have to change translateX too */
   right: 1vmin;
   bottom: 50%;
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translateX(102%) translateY(50%);
+  
   transition: transform 0.3s ease-in-out;
 }
 .wrapperOpen {

@@ -13,22 +13,28 @@ export default function ChatLog({ messages, isOpen }) {
 
   return (
     <div className={
-        isOpen
-          ? `${styles.wrapper} ${styles.wrapperOpen}`
-          : styles.wrapper
-      }>
+      isOpen
+        ? `${styles.wrapper} ${styles.wrapperOpen}`
+        : styles.wrapper
+    }>
       <div className={`div-container ${styles.container}`} ref={containerRef}>
-        {messages.map((msg, i) => (
-          <p
-            key={i}
-            className={`
-    ${styles.message}
-    ${msg.sender === "ai" ? styles.aiMessage : styles.userMessage}
-  `}
-          >
-            {msg.text}
+        {messages.length === 0 ? (
+          <p className={styles.placeholder}>
+            No chat log yet — Press on 'Start Assessment' to begin.
           </p>
-        ))}
+        ) : (
+          messages.map((msg, i) => (
+            <p
+              key={i}
+              className={`
+          ${styles.message}
+          ${msg.sender === "ai" ? styles.aiMessage : styles.userMessage}
+        `}
+            >
+              {msg.text}
+            </p>
+          ))
+        )}
       </div>
     </div>
   );
