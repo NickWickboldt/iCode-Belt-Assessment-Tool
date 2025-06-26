@@ -1,5 +1,6 @@
 'use client'
 import beltData from '@/data/belt_data.json';
+
 import { useState, useEffect } from 'react'
 import styles from "./Recommendation.module.css";
 import { getCanonicalBeltKey } from '@/lib/utils';
@@ -9,6 +10,8 @@ export default function Recommendation({ recommendation, retakeAssessment }) {
   const [showForm, setShowForm] = useState(true)
   const canonicalKey = getCanonicalBeltKey(recommendation);
   const data = canonicalKey ? beltData[canonicalKey] : null;
+
+
 
   //Call retakeAssessment(true) to enable the Retake Assessment button
   useEffect(() => {
@@ -31,13 +34,46 @@ export default function Recommendation({ recommendation, retakeAssessment }) {
     const phone = form.phone.value;
     const url = window.location.href;
 
+    const franchiseTemplateData = await fetch('/emailTemplates/franchiseMailTemplate.html');
+    let   franchiseTemplate = await franchiseTemplateData.text();
+
+    const franchiseVars = {
+      student_name: name,
+      student_phone: phone,
+      student_email: email,
+      belt_recommendation: data.title,
+      recipient_name: "franchise name"
+    };
+
+    for (let key in franchiseVars) {
+      const re = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
+      franchiseTemplate = franchiseTemplate.replace(re, vars[key]);
+    }
+
+    const userTemplateData = await fetch('/emailTemplates/userMailTemplate.html');
+    let userTemplate = await userTemplateData.text();
+
+    const userVars = {
+      student_name: name,
+      belt_recommendation: data.title,
+      icode_franchise_name: "franchise name",
+      icode_franchise_location: "locati9on"
+    };
+
+    for (let key in userVars) {
+      const re = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
+      userTemplate = userTemplate.replace(re, vars[key]);
+    }
+
+    const franchiseEmail = "something for now"
+
     try {
       const response = await fetch(
         'https://nicholaswickboldt.app.n8n.cloud/webhook-test/recieve-emails',
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, phone, url, data })
+          body: JSON.stringify({ name, email, phone, url, data, franchiseTemplate, userTemplate, franchiseEmail })
         }
       )
       if (!response.ok) {

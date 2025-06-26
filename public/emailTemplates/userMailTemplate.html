@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Belt Recommendation</title>
+    <style>
+      /* Mobile styles */
+      @media only screen and (max-width: 600px) {
+        .container {
+          width: 100% !important;
+          padding: 0 10px !important;
+        }
+        .hero h1 {
+          font-size: 24px !important;
+        }
+      }
+    </style>
+  </head>
+  <body style="margin: 0; padding: 0; background-color: #f4f4f4">
+    <!-- Outer wrapper -->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+        <td align="center">
+          <!-- Main container -->
+          <table
+            border="0"
+            cellpadding="0"
+            cellspacing="0"
+            width="600"
+            class="container"
+            style="background-color: #ffffff; margin: 20px 0; border-radius: 8px; overflow: hidden;"
+          >
+            <!-- Header -->
+            <tr>
+              <td
+                align="center"
+                style="background-color: #283139; padding: 30px"
+              >
+                <h1
+                  style="margin: 0; font-family: Arial, sans-serif; font-size: 28px; color: #ffffff;"
+                >
+                  Your Belt Recommendation
+                </h1>
+              </td>
+            </tr>
+
+            <!-- Body content -->
+            <tr>
+              <td
+                style="padding: 30px; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.5; color: #333333;"
+              >
+                <p style="margin-top: 0">
+                  Hello <strong>{{student_name}}</strong>,
+                </p>
+                <p>
+                  Thank you for taking our belt assessment! We’ve reviewed your answers, and we’re excited to recommend you for the
+                  <strong>{{belt_recommendation}}</strong>.
+                </p>
+                <p>
+                  If you have any questions about your new belt level or next steps, just reply to this email and our team will be happy to help.
+                </p>
+                <p>Congratulations, and keep up the great work!</p>
+                <p>Best regards,<br />{{icode_franchise_name}}</p>
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td
+                align="center"
+                style="background-color: #f5f5f5; padding: 20px; font-family: Arial, sans-serif; font-size: 12px; color: #777777;"
+              >
+                <p style="margin: 5px 0">
+                  {{icode_franchise_location}}
+                </p>
+              </td>
+            </tr>
+          </table>
+          <!-- End main container -->
+        </td>
+      </tr>
+    </table>
+    <!-- End outer wrapper -->
+  </body>
+</html>
