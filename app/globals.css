@@ -40,7 +40,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -76,6 +76,12 @@ a {
   margin-bottom: 2vmin;
 }
 
+.input-container > label{
+  font-size: 2vmin;
+  font-weight: 600;
+  color: var(--designer-black);
+}
+
 .input-container > input {
   width: 100%;
   padding: 0.75rem 1rem; /* nice roomy padding */
@@ -98,6 +104,12 @@ a {
 .input-container > input::placeholder {
   color: var(--text-muted);
   font-style: italic;
+}
+
+.header-title{
+  color:var(--designer-black);
+  text-align: center;
+  margin-bottom: 2vmin;
 }
 
 .primary-button {

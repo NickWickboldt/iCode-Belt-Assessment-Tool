@@ -4,20 +4,20 @@ import { useConversation } from "@elevenlabs/react";
 import { useCallback, useState, useEffect } from "react";
 import Subtitles from "../Subtitles/Subtitles";
 import Recommendation from "../Recommendation/Recommendation";
-
+import Codie from "../Codie/Codie";
 import styles from "./Conversation.module.css";
 
-export function Conversation({ addMessage }) {
+export function Conversation({ addMessage, isOpen }) {
   const [transcript, setTranscript] = useState("");
   const [isRecommendation, setIsRecommendation] = useState(false);
-  const [recommendation, setRecommendation] = useState('Foundation Belt'); 
+  const [recommendation, setRecommendation] = useState('Foundation Belt');
   const [isStarting, setIsStarting] = useState(false);
   const [error, setError] = useState(null);
 
   const conversation = useConversation({
     clientTools: {
       issueRecommendation: async ({ belt }) => {
-        setRecommendation(belt); 
+        setRecommendation(belt);
         setIsRecommendation(true);
       },
     },
@@ -29,13 +29,12 @@ export function Conversation({ addMessage }) {
       const text = payload.text ?? payload.message ?? "";
       console.log(text);
       setTranscript(text);
-      if(payload.source == 'user')
-      {
+      if (payload.source == 'user') {
         addMessage({ sender: "user", text });
-      }else{
+      } else {
         addMessage({ sender: "ai", text });
       }
-      
+
     },
     onError: (err) => console.error("Error:", err),
   });
@@ -64,7 +63,7 @@ export function Conversation({ addMessage }) {
         agentId: process.env.NEXT_PUBLIC_AGENT_KEY,
       });
     } catch (e) {
-      setError(e.message); 
+      setError(e.message);
       console.error("Failed to start conversation:", e);
     } finally {
       setIsStarting(false);
@@ -76,7 +75,11 @@ export function Conversation({ addMessage }) {
   }, [conversation]);
 
   return (
-    <div>
+    <div className={isOpen
+      ? `${styles.wrapper} ${styles.wrapperOpen}`
+      : styles.wrapper}>
+      <Codie top={"50%"} left={"50%"} />
+
       <div className={styles.conversationContainer}>
         <div className={styles.buttonGroup}>
           {conversation.status !== "connected" ? (
@@ -104,8 +107,9 @@ export function Conversation({ addMessage }) {
           <p>Codie is {conversation.isSpeaking ? "speaking" : "listening"}</p>
         </div>
       </div>
-      {isRecommendation ? <Recommendation recommendation={recommendation}/> : <Recommendation recommendation={recommendation}/>}
       <Subtitles text={transcript} />
+      {isRecommendation ? <Recommendation recommendation={recommendation} /> : <Recommendation recommendation={recommendation} />}
+
     </div>
   );
 }
