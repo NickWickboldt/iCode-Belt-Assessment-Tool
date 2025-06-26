@@ -5,7 +5,6 @@ import Link from 'next/link';
 
 
 export default function Navbar({setShowChatLog, retakeAssessment, chatlogIsOpen}) {
-
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarContainer}>
@@ -28,7 +27,7 @@ export default function Navbar({setShowChatLog, retakeAssessment, chatlogIsOpen}
             <button className={`${styles.navButton} btn primary-button`} onClick={() => {
               window.location.reload(); 
             }}>
-              Retake Assessment
+              Take a new Assessment
             </button>
           )}
           <button
