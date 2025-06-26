@@ -1,12 +1,147 @@
+/* Recommendation.module.css */
 
-
-.recommendation-box{
-    position:absolute; 
-    top: 50%; 
-    left: 50%; 
-    transform: translateX(-50%) translateY(-50%);
-    width: 70%; 
-    height: 70%; 
-    background-color: red;
+.recommendationContainer {
+    background-color: #ffffff;
     border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    padding: 4vmin;
+    width: 60%; 
+    height: 80%; 
+    margin: 2rem auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-left: 8px solid #007bff; 
+    position: absolute;
+    left:50%; 
+    top:50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; 
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 1rem;
+}
+
+.title {
+    color: #333;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.beltRecommendation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.beltLabel {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #555;
+}
+
+/* --- Dynamic Belt Styles --- */
+/* Add styles for each iCode belt color */
+.belt_white, .belt_yellow, .belt_orange, .belt_green, .belt_blue, .belt_purple, .belt_brown, .belt_black {
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.belt_white { background-color: #e0e0e0; color: #333; }
+.belt_yellow { background-color: #ffc107; }
+.belt_orange { background-color: #fd7e14; }
+.belt_green { background-color: #28a745; }
+.belt_blue { background-color: #007bff; }
+.belt_purple { background-color: #6f42c1; }
+.belt_brown { background-color: #a52a2a; }
+.belt_black { background-color: #343a40; }
+/* --- End Belt Styles --- */
+
+
+.description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.detailsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #007bff;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #eee;
+}
+
+.strengths ul, .areasForImprovement ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.strengths li, .areasForImprovement li {
+    background-color: #f9f9f9;
+    padding: 0.8rem;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.strengths li::before, .areasForImprovement li::before {
+    position: absolute;
+    left: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+}
+
+.strengths li::before {
+    content: '✔';
+    color: #28a745; /* Green checkmark */
+}
+
+.areasForImprovement li::before {
+    content: '➤';
+    color: #fd7e14; /* Orange arrow */
+}
+
+.nextSteps {
+    background-color: #e9f5ff;
+    border: 1px solid #cce4ff;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.nextSteps p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+}
+
+.learnMoreContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    align-items: flex-end;
 }
