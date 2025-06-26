@@ -7,10 +7,10 @@ import Recommendation from "../Recommendation/Recommendation";
 import Codie from "../Codie/Codie";
 import styles from "./Conversation.module.css";
 
-export function Conversation({ addMessage, isOpen, setRetakeAssessment }) {
+export function Conversation({ addMessage,setRetakeAssessment }) {
   const [transcript, setTranscript] = useState("");
-  const [isRecommendation, setIsRecommendation] = useState(false);
-  const [recommendation, setRecommendation] = useState('');
+  const [isRecommendation, setIsRecommendation] = useState(true);
+  const [recommendation, setRecommendation] = useState('Black Belt');
   const [isStarting, setIsStarting] = useState(false);
   const [error, setError] = useState(null);
 
@@ -75,9 +75,7 @@ export function Conversation({ addMessage, isOpen, setRetakeAssessment }) {
   }, [conversation]);
 
   return (
-    <div className={isOpen
-      ? `${styles.wrapper} ${styles.wrapperOpen}`
-      : styles.wrapper}>
+    <div>
       <Codie top={"50%"} left={"50%"} />
 
       <div className={styles.conversationContainer}>

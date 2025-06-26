@@ -22,118 +22,115 @@
 }
 
 .beltIcon {
-    position: absolute;
-    top: 1vmin; /* Adjust as needed */
-    left: 1vmin; /* Position it slightly outside the main padding */
-    background-color: transparent; /* Give it a solid background */
-    width: 12vmin;
+  position: absolute;
+  top: 1vmin;
+  left: 1vmin;
+  background-color: transparent;
+  width: 12vmin;
 }
 
 .header {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 1rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 1rem;
 }
 
 .title {
-    color: var(--designer-black);
-    font-size: 1.8rem;
-    font-weight: 700;
+  color: var(--designer-black);
+  font-size: 1.8rem;
+  font-weight: 700;
 }
 
 .beltRecommendation {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    padding: 1rem;
-    background-color: #f9f9f9;
-    border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
 }
 
 .beltLabel {
-    font-size: 2.5vmin;
-    font-weight: 600;
-    color: var(--designer-black);
+  font-size: 2.5vmin;
+  font-weight: 600;
+  color: var(--designer-black);
 }
 
-/* --- Dynamic Belt Styles --- */
-/* Add styles for each iCode belt color */
 .beltSubtitle {
-    border-radius: 20px;
-    font-size: 2.5vmin;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  border-radius: 20px;
+  font-size: 2.5vmin;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
-
 
 .detailsGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-bottom: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .subtitle {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--pace);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #eee;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--pace);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #eee;
 }
 
-.strengths ul, .areasForImprovement ul {
-    list-style-type: none;
-    padding-left: 0;
+.strengths ul,
+.areasForImprovement ul {
+  list-style-type: none;
+  padding-left: 0;
 }
 
-.strengths li, .areasForImprovement li {
-    background-color: #f9f9f9;
-    padding: 0.8rem;
-    border-radius: 6px;
-    margin-bottom: 0.5rem;
-    position: relative;
-    padding-left: 2rem;
+.strengths li,
+.areasForImprovement li {
+  background-color: #f9f9f9;
+  padding: 0.8rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 2rem;
 }
 
-.strengths li::before, .areasForImprovement li::before {
-    position: absolute;
-    left: 0.8rem;
-    top: 50%;
-    transform: translateY(-50%);
-    font-weight: bold;
+.strengths li::before,
+.areasForImprovement li::before {
+  position: absolute;
+  left: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
 }
 
 .strengths li::before {
-    content: '✔';
-    color: var(--green-belt); /* Green checkmark */
+  content: "✔";
+  color: var(--green-belt);
 }
 
 .areasForImprovement li::before {
-    content: '➤';
-    color: var(--orange-belt); /* Orange arrow */
+  content: "➤";
+  color: var(--orange-belt);
 }
 
-/* Styling for the main container */
 .nextSteps {
-  background-color: #f8f9fa; /* A light, neutral background */
+  background-color: #f8f9fa;
   border-radius: 12px;
   padding: 1.5rem 2rem;
   margin-top: 2rem;
-  border: 1px solid #e9ecef; /* A subtle border */
+  border: 1px solid #e9ecef;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* Styling for the unordered list */
 .recommendationList {
   list-style-type: none;
   padding-left: 0;
   margin: 0;
 }
 
-/* Styling for each list item */
 .recommendationItem {
   margin-bottom: 0.75rem;
 }
@@ -142,9 +139,8 @@
   margin-bottom: 0;
 }
 
-/* Styling for the links - the most important part */
 .recommendationLink {
-  display: block; /* Makes the entire area clickable */
+  display: block;
   padding: 1rem 1.25rem;
   background-color: #ffffff;
   color: #495057;
@@ -155,18 +151,16 @@
   font-weight: 500;
 }
 
-/* Add a hover effect for interactivity */
 .recommendationLink:hover {
-  color: var(--pace); /* A primary color for the link text */
+  color: var(--pace);
   border-color: var(--pace);
-  background-color: #e9f5ff; /* A light blue background on hover */
-  transform: translateY(-2px); /* A subtle lift effect */
+  background-color: #e9f5ff;
+  transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0, 123, 255, 0.15);
 }
 
-/* Add a right-arrow pseudo-element for a visual cue */
 .recommendationLink::after {
-  content: '→';
+  content: "→";
   float: right;
   font-weight: bold;
   opacity: 0.6;
@@ -179,8 +173,38 @@
 }
 
 .learnMoreContainer {
-    display: flex;
-    justify-content: center;
-    margin-top: 1.5rem;
-    align-items: flex-end;
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  align-items: flex-end;
+}
+
+/* Overlay form styles */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1010;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.form {
+  background: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-modal);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.blur{
+  
 }

@@ -1,17 +1,11 @@
 'use client'
 import { useState, useEffect, useCallback } from "react";
-import Image from "next/image";
-import styles from "./page.module.css";
 import Navbar from "./components/Navbar/Navbar";
-import Codie from './components/Codie/Codie';
 import { Conversation } from "./components/Conversation/Conversation";
 import ChatLog from "./components/ChatLog/ChatLog";
-import AssessmentForm from "./components/AssessementForm/AssessementForm";
-
 
 export default function Home() {
   const [showChatLog, setShowChatLog] = useState(false);
-  const [showConversation, setShowConversation] = useState(false);
   const [micStatus, setMicStatus] = useState('loading'); 
   const [micError, setMicError] = useState(null);
   const [messages, setMessages] = useState([]);
@@ -71,8 +65,7 @@ export default function Home() {
       <ChatLog messages={messages} isOpen={showChatLog} />
       
       <div className="main-content-wrapper">
-        <AssessmentForm setShowConversation = {setShowConversation}/>
-        <Conversation addMessage={addMessage} isOpen={showConversation} setRetakeAssessment={setRetakeAssessment}/>
+        <Conversation addMessage={addMessage} setRetakeAssessment={setRetakeAssessment}/>
       </div>
 
     </div>

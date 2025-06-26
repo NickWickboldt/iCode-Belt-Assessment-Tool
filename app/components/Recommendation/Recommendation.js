@@ -1,11 +1,13 @@
 'use client'
 import beltData from '@/data/belt_data.json';
+import { useState } from 'react'
 import styles from "./Recommendation.module.css";
 import { getCanonicalBeltKey } from '@/lib/utils';
 import { useEffect } from 'react';
 
 export default function Recommendation({ recommendation, retakeAssessment }) {
   // Destructure the recommendation object for easier access
+  const [showForm, setShowForm] = useState(true)
   const canonicalKey = getCanonicalBeltKey(recommendation);
   const data = canonicalKey ? beltData[canonicalKey] : null;
   
@@ -17,8 +19,36 @@ export default function Recommendation({ recommendation, retakeAssessment }) {
     }
   }, [data, retakeAssessment]);
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    // you could also grab form values here…
+    setShowForm(false)
+  }
+
   return (
     <div className={styles.recommendationContainer}>
+      {showForm && (
+        <div className={styles.overlay}>
+          <form onSubmit={handleSubmit} className={styles.form}>
+            <h3 className='header-title'>Enter your details to unlock Codie’s recommendation</h3>
+            <div className={`input-container`}>
+              <label>Name</label>
+              <input type="text" required />
+            </div>
+            <div className={`input-container`}>
+              <label>Email</label>
+              <input type="email" required />
+            </div>
+            <div className={`input-container`}>
+              <label>Phone</label>
+              <input type="tel" required />
+            </div>
+            <button type="submit" className="btn primary-button">
+              Submit
+            </button>
+          </form>
+        </div>
+      )}
       {data.icon && (
         <img
           src={data.icon}
