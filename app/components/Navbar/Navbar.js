@@ -10,7 +10,7 @@ export default function Navbar({setShowChatLog, retakeAssessment, chatlogIsOpen}
       <div className={styles.navbarContainer}>
         {/* Logo on the far left */}
         <div className={styles.logoContainer}>
-          <Link href="/" passHref>
+          <Link href="/" passHref onClick={() => {window.location.reload();}}>
               <Image
                 src="/icode-logo.png"
                 alt="iCode"

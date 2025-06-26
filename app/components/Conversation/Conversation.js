@@ -9,7 +9,7 @@ import styles from "./Conversation.module.css";
 
 export function Conversation({ addMessage,setRetakeAssessment }) {
   const [transcript, setTranscript] = useState("");
-  const [isRecommendation, setIsRecommendation] = useState();
+  const [isRecommendation, setIsRecommendation] = useState(false);
   const [recommendation, setRecommendation] = useState('');
   const [isStarting, setIsStarting] = useState(false);
   const [error, setError] = useState(null);
