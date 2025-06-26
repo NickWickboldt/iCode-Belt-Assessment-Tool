@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
 import Navbar from "./components/Navbar/Navbar";
@@ -11,33 +11,57 @@ import AssessmentForm from "./components/AssessementForm/AssessementForm";
 
 export default function Home() {
   const [showChatLog, setShowChatLog] = useState(false);
-
+  const [micStatus, setMicStatus] = useState('loading'); 
+  const [micError, setMicError] = useState(null);
   const [messages, setMessages] = useState([]);
 
   const addMessage = (msg) => {
     setMessages(prev => [...prev, msg]);
   };
 
-  // useEffect(() => {
-  //   async function checkAndRequestMic() {
-  //     try {
-  //       const status = await navigator.permissions.query({ name: 'microphone' });
-  //       console.log('Mic permission status:', status.state);
-  //       if (status.state === 'granted') {
-  //         console.log('🎤 Already granted');
-  //       } else if (status.state === 'denied') {
-  //         console.warn('🚫 Microphone access denied');
-  //       } else {
-  //         await navigator.mediaDevices.getUserMedia({ audio: true });
-  //         console.log('✅ User granted mic access');
-  //       }
-  //     } catch (err) {
-  //       console.error('Error checking/requesting mic:', err);
-  //     }
-  //   }
+  useEffect(() => {
+    let isMounted = true; 
 
-  //   checkAndRequestMic();
-  // }, []); // empty deps = run once on mount
+    async function checkMicPermission() {
+      if (!navigator.permissions || !navigator.mediaDevices) {
+        console.warn("The Permissions API or MediaDevices API is not supported by this browser.");
+        if (isMounted) {
+          setMicStatus('denied'); 
+          setMicError("Your browser doesn't support the required audio APIs.");
+        }
+        return;
+      }
+
+      try {
+        const permissionStatus = await navigator.permissions.query({ name: 'microphone' });
+        
+        if (isMounted) {
+          setMicStatus(permissionStatus.state);
+
+          permissionStatus.onchange = () => {
+            if (isMounted) {
+              setMicStatus(permissionStatus.state);
+              if (permissionStatus.state === 'granted') {
+                  setMicError(null);
+              }
+            }
+          };
+        }
+      } catch (err) {
+        console.error("Error checking microphone permissions:", err);
+        if (isMounted) {
+          setMicStatus('prompt'); 
+          setMicError("Could not determine microphone permission status.");
+        }
+      }
+    }
+
+    checkMicPermission();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []); 
 
   return (
     <div >

@@ -10,7 +10,9 @@ import styles from "./Conversation.module.css";
 export function Conversation({ addMessage }) {
   const [transcript, setTranscript] = useState("");
   const [isRecommendation, setIsRecommendation] = useState(false);
-  const [recommendation, setRecommendation] = useState(''); 
+  const [recommendation, setRecommendation] = useState('Foundation Belt'); 
+  const [isStarting, setIsStarting] = useState(false);
+  const [error, setError] = useState(null);
 
   const conversation = useConversation({
     clientTools: {
@@ -44,13 +46,28 @@ export function Conversation({ addMessage }) {
   }, [conversation.isSpeaking]);
 
   const startConversation = useCallback(async () => {
+    setIsStarting(true);
+    setError(null);
+
     try {
-      await navigator.mediaDevices.getUserMedia({ audio: true });
+      try {
+        await navigator.mediaDevices.getUserMedia({ audio: true });
+      } catch (e) {
+        if (e.name === 'NotFoundError' || e.name === 'DevicesNotFoundError') {
+          throw new Error("Microphone not found. Please ensure a microphone is connected and enabled.");
+        } else if (e.name === 'NotAllowedError' || e.name === 'PermissionDeniedError') {
+          throw new Error("Permission to use microphone was denied. Please allow microphone access in your browser settings.");
+        }
+        throw new Error("Could not access the microphone. Please check your hardware and browser settings.");
+      }
       await conversation.startSession({
         agentId: process.env.NEXT_PUBLIC_AGENT_KEY,
       });
     } catch (e) {
-      console.error("Failed to start:", e);
+      setError(e.message); 
+      console.error("Failed to start conversation:", e);
+    } finally {
+      setIsStarting(false);
     }
   }, [conversation]);
 
@@ -86,8 +103,8 @@ export function Conversation({ addMessage }) {
           </p>
           <p>Codie is {conversation.isSpeaking ? "speaking" : "listening"}</p>
         </div>
-        {isRecommendation ? <Recommendation recommendation={recommendation}/> : <></>}
       </div>
+      {isRecommendation ? <Recommendation recommendation={recommendation}/> : <Recommendation recommendation={recommendation}/>}
       <Subtitles text={transcript} />
     </div>
   );
