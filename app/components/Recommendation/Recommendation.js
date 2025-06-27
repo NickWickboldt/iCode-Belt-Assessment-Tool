@@ -35,8 +35,8 @@ export default function Recommendation({ recommendation, retakeAssessment }) {
     const url = window.location.href;
 
     const franchiseTemplateData = await fetch('/emailTemplates/franchiseMailTemplate.html');
-    let   franchiseTemplate = await franchiseTemplateData.text();
-
+    let franchiseTemplate = await franchiseTemplateData.text();
+    const franchiseEmail = "entbit12@gmail.com"
     const franchiseVars = {
       student_name: name,
       student_phone: phone,
@@ -47,7 +47,7 @@ export default function Recommendation({ recommendation, retakeAssessment }) {
 
     for (let key in franchiseVars) {
       const re = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
-      franchiseTemplate = franchiseTemplate.replace(re, vars[key]);
+      franchiseTemplate = franchiseTemplate.replace(re, franchiseVars[key]);
     }
 
     const userTemplateData = await fetch('/emailTemplates/userMailTemplate.html');
@@ -57,15 +57,16 @@ export default function Recommendation({ recommendation, retakeAssessment }) {
       student_name: name,
       belt_recommendation: data.title,
       icode_franchise_name: "franchise name",
-      icode_franchise_location: "locati9on"
+      icode_franchise_location: "location",
+      icode_franchise_phone: "45465466546",
+      icode_franchise_email: franchiseEmail
     };
 
     for (let key in userVars) {
       const re = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
-      userTemplate = userTemplate.replace(re, vars[key]);
+      userTemplate = userTemplate.replace(re, userVars[key]);
     }
 
-    const franchiseEmail = "something for now"
 
     try {
       const response = await fetch(
@@ -101,7 +102,14 @@ export default function Recommendation({ recommendation, retakeAssessment }) {
             </div>
             <div className={`input-container`}>
               <label>Phone</label>
-              <input type="tel" id="phone" name="phone" required />
+              <input
+                type="tel" id="phone" name="phone" required inputMode="numeric" pattern="\d{10}" maxLength={10}
+                onInput={e => {
+                  e.currentTarget.value = e.currentTarget.value
+                    .replace(/\D/g, '')
+                    .slice(0, 10);
+                }}
+              />
             </div>
             <button type="submit" className={`${styles.formBtn} btn primary-button`}>
               Submit
