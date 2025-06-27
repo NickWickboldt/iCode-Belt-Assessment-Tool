@@ -36,9 +36,9 @@ export default function Navbar({setShowChatLog, retakeAssessment, chatlogIsOpen}
           >
             Toggle Chatlog
           </button>
-          <button className={`${styles.navButton} primary-button btn`}>
+          {/* <button className={`${styles.navButton} primary-button btn`}>
             Legacy Assessment
-          </button>
+          </button> */}
         </div>
       </div>
     </nav>
