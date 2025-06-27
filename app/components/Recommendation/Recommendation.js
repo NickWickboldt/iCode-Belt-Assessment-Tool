@@ -1,11 +1,11 @@
 'use client'
 import beltData from '@/data/belt_data.json';
-
+import { useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react'
 import styles from "./Recommendation.module.css";
 import { getCanonicalBeltKey } from '@/lib/utils';
 
-export default function Recommendation({ recommendation, retakeAssessment }) {
+export default function Recommendation({ recommendation, retakeAssessment, franchiseLocation }) {
   // Destructure the recommendation object for easier access
   const [showForm, setShowForm] = useState(true)
   const canonicalKey = getCanonicalBeltKey(recommendation);
@@ -29,11 +29,16 @@ export default function Recommendation({ recommendation, retakeAssessment }) {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const form = e.target
+
     const name = form.name.value;
     const email = form.email.value;
     const phone = form.phone.value;
     const url = window.location.href;
 
+    //use the location to get all the franchise info
+
+
+    console.log(franchiseLocation)
     const franchiseTemplateData = await fetch('/emailTemplates/franchiseMailTemplate.html');
     let franchiseTemplate = await franchiseTemplateData.text();
     const franchiseEmail = "entbit12@gmail.com"

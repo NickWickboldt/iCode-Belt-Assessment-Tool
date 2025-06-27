@@ -1,0 +1,34 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7); /* Darker overlay for better focus */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1010;
+}
+
+.form {
+  background: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-modal);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.formBtn{
+  align-self: flex-end;
+}
+
+.blurred {
+  filter: blur(8px);
+  pointer-events: none;
+  user-select: none;
+  transition: filter 0.3s ease-in-out;
+}

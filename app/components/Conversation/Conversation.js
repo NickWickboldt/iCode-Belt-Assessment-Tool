@@ -7,12 +7,14 @@ import Recommendation from "../Recommendation/Recommendation";
 import Codie from "../Codie/Codie";
 import styles from "./Conversation.module.css";
 
-export function Conversation({ addMessage,setRetakeAssessment }) {
+export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation }) {
   const [transcript, setTranscript] = useState("");
-  const [isRecommendation, setIsRecommendation] = useState(false);
+  const [isRecommendation, setIsRecommendation] = useState();
   const [recommendation, setRecommendation] = useState('');
   const [isStarting, setIsStarting] = useState(false);
   const [error, setError] = useState(null);
+
+
 
   const conversation = useConversation({
     clientTools: {
@@ -105,7 +107,7 @@ export function Conversation({ addMessage,setRetakeAssessment }) {
           <p>Codie is {conversation.isSpeaking ? "speaking" : "listening"}</p>
         </div>
       </div>
-      {isRecommendation ? <Recommendation retakeAssessment={setRetakeAssessment} recommendation={recommendation}/> : <></>}
+      {isRecommendation ? <Recommendation retakeAssessment={setRetakeAssessment} recommendation={recommendation} franchiseLocation={franchiseLocation} /> : <></>}
       <Subtitles text={transcript} />
     </div>
   );

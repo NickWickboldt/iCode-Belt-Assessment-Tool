@@ -3,26 +3,33 @@ import { useState, useEffect, useCallback } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import { Conversation } from "./components/Conversation/Conversation";
 import ChatLog from "./components/ChatLog/ChatLog";
+import { useSearchParams } from 'next/navigation';
+import LocationSelector from "./components/LocationSelector/LocationSelector";
+
 
 export default function Home() {
   const [showChatLog, setShowChatLog] = useState(false);
-  const [micStatus, setMicStatus] = useState('loading'); 
+  const [micStatus, setMicStatus] = useState('loading');
   const [micError, setMicError] = useState(null);
   const [messages, setMessages] = useState([]);
   const [retakeAssessment, setRetakeAssessment] = useState(false);
+
+  const params = useSearchParams();
+
+  const franchiseLocation = params.get('location')
 
   const addMessage = (msg) => {
     setMessages(prev => [...prev, msg]);
   };
 
   useEffect(() => {
-    let isMounted = true; 
+    let isMounted = true;
 
     async function checkMicPermission() {
       if (!navigator.permissions || !navigator.mediaDevices) {
         console.warn("The Permissions API or MediaDevices API is not supported by this browser.");
         if (isMounted) {
-          setMicStatus('denied'); 
+          setMicStatus('denied');
           setMicError("Your browser doesn't support the required audio APIs.");
         }
         return;
@@ -30,7 +37,7 @@ export default function Home() {
 
       try {
         const permissionStatus = await navigator.permissions.query({ name: 'microphone' });
-        
+
         if (isMounted) {
           setMicStatus(permissionStatus.state);
 
@@ -38,7 +45,7 @@ export default function Home() {
             if (isMounted) {
               setMicStatus(permissionStatus.state);
               if (permissionStatus.state === 'granted') {
-                  setMicError(null);
+                setMicError(null);
               }
             }
           };
@@ -46,7 +53,7 @@ export default function Home() {
       } catch (err) {
         console.error("Error checking microphone permissions:", err);
         if (isMounted) {
-          setMicStatus('prompt'); 
+          setMicStatus('prompt');
           setMicError("Could not determine microphone permission status.");
         }
       }
@@ -57,15 +64,28 @@ export default function Home() {
     return () => {
       isMounted = false;
     };
-  }, []); 
+  }, []);
 
   return (
     <div >
       <Navbar setShowChatLog={setShowChatLog} retakeAssessment={retakeAssessment} chatlogIsOpen={showChatLog} />
       <ChatLog messages={messages} isOpen={showChatLog} />
-      
+
       <div className="main-content-wrapper">
-        <Conversation addMessage={addMessage} setRetakeAssessment={setRetakeAssessment}/>
+        {!franchiseLocation
+          ? (
+            // NO location param → show your selector/modal
+            <LocationSelector />
+          )
+          : (
+            // location param present → show the main Conversation UI
+            <Conversation
+              addMessage={addMessage}
+              setRetakeAssessment={setRetakeAssessment}
+              franchiseLocation={franchiseLocation}
+            />
+          )
+        }
       </div>
 
     </div>
