@@ -1,7 +1,7 @@
 // /app/api/auth/me/route.js
 
 import { NextResponse } from 'next/server';
-import { verifyToken } from '@/lib/authUtils'; // Import your verification function
+import {verifyToken} from '@/lib/utils';
 import dbConnect from '@/lib/dbConnect';
 import User from '@/models/User';
 
