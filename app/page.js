@@ -9,10 +9,12 @@ import LocationSelector from "./components/LocationSelector/LocationSelector";
 
 export default function Home() {
   const [showChatLog, setShowChatLog] = useState(false);
+  const [retakeAssessment, setRetakeAssessment] = useState(false);
+  const [messages, setMessages] = useState([]);
   const [micStatus, setMicStatus] = useState('loading');
   const [micError, setMicError] = useState(null);
-  const [messages, setMessages] = useState([]);
-  const [retakeAssessment, setRetakeAssessment] = useState(false);
+  
+  
 
   const params = useSearchParams();
 

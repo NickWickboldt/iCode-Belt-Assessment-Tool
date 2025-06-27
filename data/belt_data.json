@@ -3,6 +3,7 @@
     "title": "STEM Jr Belt",
     "subtitle": "STEM Fundamentals",
     "icon": "/icons/STEM-Jr-Belt.webp",
+    "color": "linear-gradient(45deg,#ff5e5e,#ffb45e,#f8ff5e,#5eff8f,#5ebcff,#a35eff,#ff5ed4)",
     "keyConcepts": [
       "Programming: VEX 123",
       "Robotics",
@@ -69,6 +70,7 @@
     "title": "Foundation Belt",
     "subtitle": "Basic Game Development",
     "icon": "/icons/foundation-belt.webp",
+    "color": "#909090",
     "keyConcepts": [
       "Programming: Scratch 3",
       "Computer Basics",
@@ -125,6 +127,7 @@
     "title": "White Belt",
     "subtitle": "Robotics and Programming",
     "icon": "/icons/white-belt.webp",
+    "color": "#EEEEEE",
     "keyConcepts": [
       "Programming: VEX Code",
       "Robotics with VEX IQ",
@@ -185,6 +188,7 @@
     "title": "Gray Belt",
     "subtitle": "Minecraft and Roblox",
     "icon": "/icons/gray-belt.webp",
+    "color": "gray",
     "keyConcepts": [
       "Programming: MakeCode and Lua",
       "Transition to Text-Based Coding",
@@ -246,6 +250,7 @@
     "title": "Orange Belt",
     "subtitle": "Web Development",
     "icon": "/icons/orange-belt.webp",
+    "color": "orange",
     "keyConcepts": [
       "Programming: HTML, CSS, and JS",
       "Web Development and Design",
@@ -306,6 +311,7 @@
     "title": "Yellow Belt",
     "subtitle": "Mobile App Development",
     "icon": "/icons/yellow-belt.webp",
+    "color": "#FFFF44",
     "keyConcepts": [
       "Programming: C# and XML",
       "Mobile App Development",
@@ -368,6 +374,7 @@
     "title": "Green Belt",
     "subtitle": "Python, Drones, and ChatGPT",
     "icon": "/icons/green-belt.webp",
+    "color": "green",
     "keyConcepts": [
       "Programming: Python 3",
       "Data Science",
@@ -430,6 +437,7 @@
     "title": "Red Belt",
     "subtitle": "Game Development with UE5",
     "icon": "/icons/red-belt.webp",
+    "color": "#AA0000",
     "keyConcepts": [
       "Programming: UE5 Blueprints",
       "Unreal Engine 5",
@@ -491,6 +499,7 @@
     "title": "Blue Belt",
     "subtitle": "Networking and Cybersecurity",
     "icon": "/icons/blue-belt.webp",
+    "color": "blue",
     "keyConcepts": [
       "Programming: BASH and Python",
       "OSI and TCP/IP Models",
@@ -556,6 +565,7 @@
     "title": "Black Belt",
     "subtitle": "Web Apps with Java",
     "icon": "/icons/black-belt.webp",
+    "color": "#111111",
     "keyConcepts": [
       "Programming: Java and SQL",
       "Unified Modeling Language (UML)",

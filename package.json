@@ -10,7 +10,12 @@
   },
   "dependencies": {
     "@elevenlabs/react": "^0.1.7",
+    "bcryptjs": "^3.0.2",
     "framer-motion": "^12.19.1",
+    "google-auth-library": "^10.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.17.0",
+    "mongoose": "^8.16.1",
     "next": "15.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

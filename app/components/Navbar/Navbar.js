@@ -1,23 +1,23 @@
 'use client'
 import Image from 'next/image';
 import styles from "./Navbar.module.css";
-import Link from 'next/link'; 
+import Link from 'next/link';
 
 
-export default function Navbar({setShowChatLog, retakeAssessment, chatlogIsOpen}) {
+export default function Navbar({ setShowChatLog, retakeAssessment, chatlogIsOpen }) {
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarContainer}>
         {/* Logo on the far left */}
         <div className={styles.logoContainer}>
-          <Link href="/" passHref onClick={() => {window.location.reload();}}>
-              <Image
-                src="/icode-logo.png"
-                alt="iCode"
-                width={60}
-                height={60} 
-                priority
-              />
+          <Link href="/" passHref onClick={() => { window.location.reload(); }}>
+            <Image
+              src="/icode-logo.png"
+              alt="iCode"
+              width={60}
+              height={60}
+              priority
+            />
           </Link>
         </div>
 
@@ -25,7 +25,7 @@ export default function Navbar({setShowChatLog, retakeAssessment, chatlogIsOpen}
         <div className={styles.navLinks}>
           {retakeAssessment && (
             <button className={`${styles.navButton} btn primary-button`} onClick={() => {
-              window.location.reload(); 
+              window.location.reload();
             }}>
               Take a new Assessment
             </button>
@@ -39,6 +39,12 @@ export default function Navbar({setShowChatLog, retakeAssessment, chatlogIsOpen}
           {/* <button className={`${styles.navButton} primary-button btn`}>
             Legacy Assessment
           </button> */}
+          <Link href="/instructor-page">
+            <button className={`${styles.navButton} primary-button btn`}>
+              Instructor Assessment
+            </button>
+          </Link>
+
         </div>
       </div>
     </nav>

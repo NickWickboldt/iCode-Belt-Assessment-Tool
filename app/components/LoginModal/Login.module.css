@@ -1,0 +1,11 @@
+.container {
+  position: absolute;
+  left: 50%;
+  top: 10vmin;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #ffffff;
+}

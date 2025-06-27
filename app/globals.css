@@ -69,6 +69,17 @@ a {
   padding: 2vmin;
 }
 
+.form {
+  background: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-modal);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
 .input-container {
   display: flex;
   flex-direction: column;
