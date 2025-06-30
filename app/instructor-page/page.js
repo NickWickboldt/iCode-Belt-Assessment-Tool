@@ -10,7 +10,7 @@ export default function InstructorPage() {
   const [messages, setMessages] = useState([]);
   return (
     <div>
-      <Navbar setShowChatLog={setShowChatLog} retakeAssessment={retakeAssessment} chatlogIsOpen={showChatLog}/>
+      <Navbar setShowChatLog={setShowChatLog} retakeAssessment={retakeAssessment} chatlogIsOpen={showChatLog} showInstructorPage={false}/>
       <ChatLog messages={messages} isOpen={showChatLog} />
 
       <div className="main-content-wrapper">

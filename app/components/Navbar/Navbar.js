@@ -4,7 +4,7 @@ import styles from "./Navbar.module.css";
 import Link from 'next/link';
 
 
-export default function Navbar({ setShowChatLog, retakeAssessment, chatlogIsOpen }) {
+export default function Navbar({ setShowChatLog, retakeAssessment, chatlogIsOpen, showInstructorPage }) {
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarContainer}>
@@ -39,12 +39,13 @@ export default function Navbar({ setShowChatLog, retakeAssessment, chatlogIsOpen
           {/* <button className={`${styles.navButton} primary-button btn`}>
             Legacy Assessment
           </button> */}
+          {showInstructorPage && (
           <Link href="/instructor-page">
             <button className={`${styles.navButton} primary-button btn`}>
               Instructor Assessment
             </button>
           </Link>
-
+          )}
         </div>
       </div>
     </nav>

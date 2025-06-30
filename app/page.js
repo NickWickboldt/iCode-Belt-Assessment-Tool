@@ -18,7 +18,7 @@ function PageContent({ addMessage, setRetakeAssessment }) {
       {!franchiseLocation
         ? (
           // NO location param → show your selector/modal
-          <LocationSelector />
+          <LocationSelector askName={false} />
         )
         : (
           // location param present → show the main Conversation UI
@@ -26,6 +26,7 @@ function PageContent({ addMessage, setRetakeAssessment }) {
             addMessage={addMessage}
             setRetakeAssessment={setRetakeAssessment}
             franchiseLocation={franchiseLocation}
+            agentId={process.env.NEXT_PUBLIC_AGENT_KEY}
           />
         )
       }
@@ -81,7 +82,7 @@ export default function Home() {
 
   return (
     <div>
-      <Navbar setShowChatLog={setShowChatLog} retakeAssessment={retakeAssessment} chatlogIsOpen={showChatLog} />
+      <Navbar setShowChatLog={setShowChatLog} retakeAssessment={retakeAssessment} chatlogIsOpen={showChatLog} showInstructorPage={true} />
       <ChatLog messages={messages} isOpen={showChatLog} />
 
       <div className="main-content-wrapper">

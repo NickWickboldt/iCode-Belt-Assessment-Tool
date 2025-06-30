@@ -7,14 +7,14 @@ import Recommendation from "../Recommendation/Recommendation";
 import Codie from "../Codie/Codie";
 import styles from "./Conversation.module.css";
 
-export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation }) {
+export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation, agentId, interviewType="Assessment" }) {
   const [transcript, setTranscript] = useState("");
-  const [isRecommendation, setIsRecommendation] = useState();
+  const [isRecommendation, setIsRecommendation] = useState(false);
   const [recommendation, setRecommendation] = useState('');
+  const [isInterviewCompleted, setIsInterviewCompleted] = useState(false);
+  const [interviewScore, setInterviewScore] = useState(0);
   const [isStarting, setIsStarting] = useState(false);
   const [error, setError] = useState(null);
-
-
 
   const conversation = useConversation({
     clientTools: {
@@ -22,6 +22,10 @@ export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation
         setRecommendation(belt);
         setIsRecommendation(true);
       },
+      issueInterviewScore: async ({ score }) => {
+        setInterviewScore(score);
+        setIsInterviewCompleted(true);
+      }
     },
     streaming: true,
     onConnect: () => console.log("Connected"),
@@ -62,7 +66,7 @@ export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation
         throw new Error("Could not access the microphone. Please check your hardware and browser settings.");
       }
       await conversation.startSession({
-        agentId: process.env.NEXT_PUBLIC_AGENT_KEY,
+        agentId: agentId,
       });
     } catch (e) {
       setError(e.message);
@@ -87,27 +91,28 @@ export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation
               onClick={startConversation}
               className={`primary-button btn`}
             >
-              Start Assessment
+              Start {interviewType}
             </button>
           ) : (
             <button
               onClick={stopConversation}
               className={`danger-button btn`}
             >
-              Stop Assessment
+              Stop {interviewType}
             </button>
           )}
         </div>
 
         <div className={styles.statusInfo}>
           <p>
-            Assessment:{" "}
+            {interviewType}:{" "}
             {conversation.status == "disconnected" ? "Inactive" : "Active"}
           </p>
           <p>Codie is {conversation.isSpeaking ? "speaking" : "listening"}</p>
         </div>
       </div>
       {isRecommendation ? <Recommendation retakeAssessment={setRetakeAssessment} recommendation={recommendation} franchiseLocation={franchiseLocation} /> : <></>}
+      {isInterviewCompleted ? <h1>{interviewScore}</h1> : <></>}
       <Subtitles text={transcript} />
     </div>
   );
