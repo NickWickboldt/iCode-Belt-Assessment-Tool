@@ -6,6 +6,7 @@ import Subtitles from "../Subtitles/Subtitles";
 import Recommendation from "../Recommendation/Recommendation";
 import Codie from "../Codie/Codie";
 import styles from "./Conversation.module.css";
+import InterviewResult from "../InterviewResult/InterviewResult";
 
 export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation, agentId, interviewType="Assessment" }) {
   const [transcript, setTranscript] = useState("");
@@ -112,7 +113,7 @@ export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation
         </div>
       </div>
       {isRecommendation ? <Recommendation retakeAssessment={setRetakeAssessment} recommendation={recommendation} franchiseLocation={franchiseLocation} /> : <></>}
-      {isInterviewCompleted ? <h1>{interviewScore}</h1> : <></>}
+      {isInterviewCompleted ? <InterviewResult score={interviewScore}/> : <></>}
       <Subtitles text={transcript} />
     </div>
   );
