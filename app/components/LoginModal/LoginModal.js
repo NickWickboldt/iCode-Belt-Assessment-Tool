@@ -23,8 +23,10 @@ function GoogleSignInButton({ onSignIn }) {
   return <div ref={googleButton}></div>;
 }
 
+
+
 // --- Main Component ---
-export default function LoginModal() {
+export default function LoginModal({addMessage}) {
   const router = useRouter();
   // Use a state to manage the authentication status
   const [authStatus, setAuthStatus] = useState('loading'); // 'loading', 'authenticated', 'unauthenticated'
@@ -99,7 +101,7 @@ export default function LoginModal() {
     <div className={`${styles.container} div-container`}>
       {authStatus === 'authenticated' ? (
         // --- Signed-in view ---
-        <BeltSelector/>
+        <BeltSelector addMessage={addMessage}/>
       ) : (
         // --- Not-signed-in view ---
         <>

@@ -39,9 +39,51 @@
   object-fit: contain;
 }
 
+
+.conversationWrapper {
+  margin-top: 2rem;
+  height: 70vh;
+  width: 100%;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  animation: fadeInUp 0.5s ease forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1vmin;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  color: #283139;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.backButton:hover {
+  color: #0070f3;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .grid {
     grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
     grid-template-rows: auto;
   }
 }
+

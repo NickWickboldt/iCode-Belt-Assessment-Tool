@@ -43,7 +43,8 @@ export default function Home() {
   const [messages, setMessages] = useState([]);
   const [micStatus, setMicStatus] = useState('loading');
   const [micError, setMicError] = useState(null);
-
+  const params = useSearchParams();
+  const franchiseLocation = params.get('location');
   const addMessage = (msg) => {
     setMessages(prev => [...prev, msg]);
   };
@@ -82,7 +83,7 @@ export default function Home() {
 
   return (
     <div>
-      <Navbar setShowChatLog={setShowChatLog} retakeAssessment={retakeAssessment} chatlogIsOpen={showChatLog} showInstructorPage={true} />
+      <Navbar setShowChatLog={setShowChatLog} retakeAssessment={retakeAssessment} chatlogIsOpen={showChatLog} showInstructorPage={true} franchiseLocation={franchiseLocation} />
       <ChatLog messages={messages} isOpen={showChatLog} />
 
       <div className="main-content-wrapper">

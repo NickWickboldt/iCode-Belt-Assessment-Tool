@@ -14,6 +14,7 @@ export default function Subtitles({ text }) {
   return (
     // AnimatePresence handles the mounting and unmounting of the component
     // when the 'text' prop changes, allowing for exit animations.
+
     <AnimatePresence>
       {text && (
         <motion.div
