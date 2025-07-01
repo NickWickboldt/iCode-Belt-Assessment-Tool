@@ -50,6 +50,7 @@ function InstructorPage() {
     // This function will be passed to LocationSelector to update the parent state
     const handleLocationSelected = (location) => {
         setFranchiseLocation(location);
+        sessionStorage.setItem('location', location); // Store the selected location in session storage
     };
 
     // While checking for location, show nothing to prevent flashes of content
