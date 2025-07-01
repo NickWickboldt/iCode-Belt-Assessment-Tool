@@ -20,6 +20,10 @@ function InstructorPage() {
     const [showChatLog, setShowChatLog] = useState(false);
     const [retakeAssessment, setRetakeAssessment] = useState(false);
     const [messages, setMessages] = useState([]);
+
+    const addMessage = (msg) => {
+        setMessages(prev => [...prev, msg]);
+    };
     
     // This state will now be the single source of truth for the location
     const [franchiseLocation, setFranchiseLocation] = useState(null);
@@ -65,7 +69,7 @@ function InstructorPage() {
                         <LocationSelector askName={true} onLocationSelected={handleLocationSelected} />
                     )
                     : (
-                        <InterviewForm />
+                        <InterviewForm addMessage={addMessage}/>
                     )
                 }
             </div>

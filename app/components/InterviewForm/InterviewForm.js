@@ -3,13 +3,14 @@
 import { useState, useEffect } from 'react';
 import styles from './InterviewForm.module.css';
 import { Conversation } from '../Conversation/Conversation';
+import { useMemo } from 'react';
 
 
 /**
  * An interview form that autofills user data from sessionStorage
  * and allows them to apply for a position.
  */
-export default function InterviewForm() {
+export default function InterviewForm({addMessage}) {
     // --- Existing State ---
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -39,24 +40,35 @@ export default function InterviewForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         const formData = { firstName, lastName, email, phone, location, age, position };
-        
+
         setSubmittedData(formData);
-        
+
         setIsFadingOut(true);
 
         setTimeout(() => {
             setIsSubmitted(true);
-        }, 500); 
+        }, 500);
     };
 
-    if (isSubmitted) {
+    const conversationMemo = useMemo(() => {
         console.log('Form submitted:', submittedData);
-        return <Conversation agentId={process.env.NEXT_PUBLIC_AGENT_INTERVIEW} interviewType='Interview' formData={submittedData}/>;
+        return (
+            <Conversation
+                addMessage={addMessage}
+                agentId={process.env.NEXT_PUBLIC_AGENT_INTERVIEW}
+                interviewType="Interview"
+                formData={submittedData}
+            />
+        );
+    }, [submittedData]);
+
+    if (isSubmitted) {
+        return conversationMemo;
     }
 
     return (
-        <form 
-            onSubmit={handleSubmit} 
+        <form
+            onSubmit={handleSubmit}
             className={`${styles.formContainer} ${isFadingOut ? styles.fadingOut : ''}`}
         >
             <h2 className={styles.header}>Before we get started...</h2>
@@ -91,7 +103,7 @@ export default function InterviewForm() {
                     />
                 </div>
             </div>
-            
+
 
             <div className={styles.columnBox}>
                 {/* User Email */}

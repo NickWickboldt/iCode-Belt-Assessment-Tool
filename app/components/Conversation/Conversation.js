@@ -34,6 +34,7 @@ export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation
     onConnect: () => console.log("Connected"),
     onDisconnect: () => console.log("Disconnected"),
     onMessage: (msg) => {
+      console.log(msg)
       let payload = typeof msg === "string" ? JSON.parse(msg) : msg;
       const text = payload.text ?? payload.message ?? "";
       console.log(text);
@@ -52,6 +53,10 @@ export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation
   useEffect(() => {
     if (conversation.isSpeaking) setTranscript("");
   }, [conversation.isSpeaking]);
+
+  useEffect(() => {
+    console.log("🔁 Status changed:", conversation.status);
+  }, [conversation.status]);
 
   const startConversation = useCallback(async () => {
     setIsStarting(true);
