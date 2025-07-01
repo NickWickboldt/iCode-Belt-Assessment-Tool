@@ -26,7 +26,7 @@ function GoogleSignInButton({ onSignIn }) {
 
 
 // --- Main Component ---
-export default function LoginModal({addMessage}) {
+export default function LoginModal({ addMessage }) {
   const router = useRouter();
   // Use a state to manage the authentication status
   const [authStatus, setAuthStatus] = useState('loading'); // 'loading', 'authenticated', 'unauthenticated'
@@ -75,9 +75,9 @@ export default function LoginModal({addMessage}) {
     });
 
     const data = await res.json();
-
     if (data.token) {
       localStorage.setItem('userToken', data.token);
+      sessionStorage.setItem('email', data.user['email'])
       setUser(data.user);
       setAuthStatus('authenticated');
       // Optional: Redirect after successful login
@@ -97,19 +97,15 @@ export default function LoginModal({addMessage}) {
     );
   }
 
-  return (
+  return authStatus === 'authenticated' ? (
+    <div className={styles.centerContainer}>
+      <BeltSelector addMessage={addMessage} />
+    </div>
+  ) : (
     <div className={`${styles.container} div-container`}>
-      {authStatus === 'authenticated' ? (
-        // --- Signed-in view ---
-        <BeltSelector addMessage={addMessage}/>
-      ) : (
-        // --- Not-signed-in view ---
-        <>
-          <h1>Sign In</h1>
-          <GoogleSignInButton onSignIn={handleCredentialResponse} />
-          <p id="authMessage">Please sign in with Google</p>
-        </>
-      )}
+      <h1>Sign In</h1>
+      <GoogleSignInButton onSignIn={handleCredentialResponse} />
+      <p id="authMessage">Please sign in with Google</p>
     </div>
   );
 }

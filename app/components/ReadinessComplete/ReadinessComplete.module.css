@@ -1,0 +1,40 @@
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 200;
+}
+
+.evaluationBox {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f4f9ff;
+  border-left: 4px solid #0070f7;
+  font-style: italic;
+}
+
+.recommendations {
+  margin-top: 2rem;
+}
+
+.recommendations h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.recommendations ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.recommendations li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.emailP{
+    margin-top: 2rem;
+    font-style: italic;
+    color: #555
+}

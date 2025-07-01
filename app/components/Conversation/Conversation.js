@@ -7,8 +7,9 @@ import Recommendation from "../Recommendation/Recommendation";
 import Codie from "../Codie/Codie";
 import styles from "./Conversation.module.css";
 import InterviewResult from "../InterviewResult/InterviewResult";
+import ReadinessComplete from "../ReadinessComplete/ReadinessComplete";
 
-export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation, agentId, interviewType="Assessment", formData = null }) {
+export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation, agentId, interviewType="Assessment", formData = null, belt=null }) {
   const [transcript, setTranscript] = useState("");
   const [isRecommendation, setIsRecommendation] = useState(false);
   const [recommendation, setRecommendation] = useState('');
@@ -17,6 +18,8 @@ export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation
   const [interviewScore, setInterviewScore] = useState(0);
   const [isStarting, setIsStarting] = useState(false);
   const [error, setError] = useState(null);
+  const [readinessEvaluation, setReadinessEvaluation] = useState('');
+  const [isReadinessComplete, setIsReadinessComplete] = useState(false);
 
   const conversation = useConversation({
     clientTools: {
@@ -28,6 +31,14 @@ export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation
         setInterviewScore(score);
         setReasoning(reasoning);
         setIsInterviewCompleted(true);
+      },
+      issueReadinessEvaluation: async ({ evaluation }) => {
+        setReadinessEvaluation(evaluation);
+        setIsReadinessComplete(true);
+      },
+      setName: async ({ firstName, lastName }) => {
+        sessionStorage.setItem('firstName', firstName);
+        sessionStorage.setItem('lastName', lastName);
       }
     },
     streaming: true,
@@ -121,6 +132,7 @@ export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation
       </div>
       {isRecommendation ? <Recommendation retakeAssessment={setRetakeAssessment} recommendation={recommendation} franchiseLocation={franchiseLocation} /> : <></>}
       {isInterviewCompleted ? <InterviewResult score={interviewScore} reasoning={reasoning} formData={formData} /> : <></>}
+      { isReadinessComplete ? <ReadinessComplete readinessEvaluation={readinessEvaluation} belt={belt} /> : <></> }
       <Subtitles text={transcript} />
     </div>
   );

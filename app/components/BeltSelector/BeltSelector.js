@@ -22,13 +22,22 @@ export default function BeltSelector({addMessage}) {
   const entries = Object.entries(BeltData)
   const [selectedBelt, setSelectedBelt] = useState(null)
   // Header toggles between selection and conversation
-  const headerText = (selectedBelt
-    ? `${selectedBelt.title.toUpperCase()} Assessment`
-    : 'Select your belt'
-  )
+  const toTitleCase = (str) =>
+    str.replace(/\w\S*/g, (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
+
+  const headerText = selectedBelt
+    ? `${toTitleCase(selectedBelt.title)} Readiness Assessment`
+    : 'Select your belt';
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      // style={
+      //   selectedBelt?.title === 'STEM Jr Belt'
+      //     ? { background: selectedBelt.color }
+      //     : { backgroundColor: selectedBelt?.color || '#f0f0f0' }
+      // }
+    >
       {/* Dynamic header in uppercase */}
       <h2>{headerText}</h2>
 
@@ -51,9 +60,9 @@ export default function BeltSelector({addMessage}) {
         </div>
       ) : (
         <div className={styles.conversationWrapper}>
-          <Conversation addMessage={addMessage} agentId={AGENT_MAP[selectedBelt.key]}/>
+          <Conversation addMessage={addMessage} agentId={AGENT_MAP[selectedBelt.key]} belt={selectedBelt.title}/>
           <button
-            className="btn"
+            className={`${styles.backButton} btn primary-button`}
             onClick={() => setSelectedBelt(null)}
           >
             Back to Selection
