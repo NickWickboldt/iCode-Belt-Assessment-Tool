@@ -12,8 +12,8 @@ export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation
   const [transcript, setTranscript] = useState("");
   const [isRecommendation, setIsRecommendation] = useState(false);
   const [recommendation, setRecommendation] = useState('');
-  const [reasoning, setReasoning] = useState('You have no skills.');
-  const [isInterviewCompleted, setIsInterviewCompleted] = useState(true);
+  const [reasoning, setReasoning] = useState('');
+  const [isInterviewCompleted, setIsInterviewCompleted] = useState(false);
   const [interviewScore, setInterviewScore] = useState(0);
   const [isStarting, setIsStarting] = useState(false);
   const [error, setError] = useState(null);

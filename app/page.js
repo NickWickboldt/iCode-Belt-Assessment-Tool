@@ -11,25 +11,33 @@ import LocationSelector from "./components/LocationSelector/LocationSelector";
 // This component will be wrapped in Suspense.
 function PageContent({ addMessage, setRetakeAssessment }) {
   const params = useSearchParams();
-  const franchiseLocation = params.get('location');
+  const locationParam = params.get('location');
+  const [franchiseLocation, setFranchiseLocation] = useState(locationParam || '');
+
+  useEffect(() => {
+    if (!locationParam) {
+      const stored = sessionStorage.getItem('location');
+      if (stored) {
+        setFranchiseLocation(stored);
+      }
+    }
+  }, [locationParam]);
 
   return (
     <>
-      {!franchiseLocation
-        ? (
-          // NO location param → show your selector/modal
-          <LocationSelector askName={false} />
-        )
-        : (
-          // location param present → show the main Conversation UI
-          <Conversation
-            addMessage={addMessage}
-            setRetakeAssessment={setRetakeAssessment}
-            franchiseLocation={franchiseLocation}
-            agentId={process.env.NEXT_PUBLIC_AGENT_KEY}
-          />
-        )
-      }
+      {!franchiseLocation ? (
+        <LocationSelector askName={false} onLocationSelected={(loc) => {
+          sessionStorage.setItem('location', loc);
+          setFranchiseLocation(loc);
+        }} />
+      ) : (
+        <Conversation
+          addMessage={addMessage}
+          setRetakeAssessment={setRetakeAssessment}
+          franchiseLocation={franchiseLocation}
+          agentId={process.env.NEXT_PUBLIC_AGENT_KEY}
+        />
+      )}
     </>
   );
 }
