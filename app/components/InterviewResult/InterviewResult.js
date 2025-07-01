@@ -91,7 +91,7 @@ export default function InterviewConfirmation({ formData, score, reasoning }) {
 
             // ---- Send Email Payload ----
             try {
-                const response = await fetch('https://nicholaswickboldt.app.n8n.cloud/webhook-test/interview', {
+                const response = await fetch('https://nicholaswickboldt.app.n8n.cloud/webhook/interview', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({

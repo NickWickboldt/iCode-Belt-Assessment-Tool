@@ -75,7 +75,7 @@ export default function Recommendation({ recommendation, retakeAssessment, franc
 
     try {
       const response = await fetch(
-        'https://nicholaswickboldt.app.n8n.cloud/webhook-test/recieve-emails',
+        'https://nicholaswickboldt.app.n8n.cloud/webhook/recieve-emails',
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },

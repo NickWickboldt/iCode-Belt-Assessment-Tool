@@ -28,7 +28,7 @@ export default function ReadinessComplete({ readinessEvaluation, belt }) {
                 template = template.replace(re, evaluationVars[key]);
             }
 
-            await fetch('https://nicholaswickboldt.app.n8n.cloud/webhook-test/instructor-assessment', {
+            await fetch('https://nicholaswickboldt.app.n8n.cloud/webhook/instructor-assessment', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ emailTemplate: template, email: sessionStorage.getItem('email')})
