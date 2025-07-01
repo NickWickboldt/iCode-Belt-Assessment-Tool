@@ -1,14 +1,12 @@
-'use client'
+'use client';
 
 import { useState, useEffect, Suspense } from "react";
-import { useSearchParams } from 'next/navigation';
 import Navbar from "./components/Navbar/Navbar";
-import { Conversation } from "./components/Conversation/Conversation";
 import ChatLog from "./components/ChatLog/ChatLog";
 import LocationSelector from "./components/LocationSelector/LocationSelector";
+import { Conversation } from "./components/Conversation/Conversation";
+import { useSearchParams } from 'next/navigation'; 
 
-// Step 1: Create a new component for the logic that uses the search params.
-// This component will be wrapped in Suspense.
 function PageContent({ addMessage, setRetakeAssessment }) {
   const params = useSearchParams();
   const locationParam = params.get('location');
@@ -42,23 +40,17 @@ function PageContent({ addMessage, setRetakeAssessment }) {
   );
 }
 
-
-// Step 2: The main page component no longer uses useSearchParams directly.
-// It is now responsible for state and providing the Suspense boundary.
 export default function Home() {
   const [showChatLog, setShowChatLog] = useState(false);
   const [retakeAssessment, setRetakeAssessment] = useState(false);
   const [messages, setMessages] = useState([]);
   const [micStatus, setMicStatus] = useState('loading');
   const [micError, setMicError] = useState(null);
-  const params = useSearchParams();
-  const franchiseLocation = params.get('location');
+
   const addMessage = (msg) => {
     setMessages(prev => [...prev, msg]);
   };
 
-  // The microphone check logic does not depend on the URL,
-  // so it can safely stay in the main component.
   useEffect(() => {
     let isMounted = true;
 
@@ -91,14 +83,16 @@ export default function Home() {
 
   return (
     <div>
-      <Navbar setShowChatLog={setShowChatLog} retakeAssessment={retakeAssessment} chatlogIsOpen={showChatLog} showInstructorPage={true} franchiseLocation={franchiseLocation} />
+      <Navbar
+        setShowChatLog={setShowChatLog}
+        retakeAssessment={retakeAssessment}
+        chatlogIsOpen={showChatLog}
+        showInstructorPage={true}
+        franchiseLocation={undefined} // optional: pass null or remove
+      />
       <ChatLog messages={messages} isOpen={showChatLog} />
 
       <div className="main-content-wrapper">
-        {/*
-          Step 3: Wrap the new dynamic component in Suspense.
-          Provide a fallback UI to show while it loads.
-        */}
         <Suspense fallback={<p>Loading location...</p>}>
           <PageContent
             addMessage={addMessage}

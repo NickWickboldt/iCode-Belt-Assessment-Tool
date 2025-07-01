@@ -141,7 +141,7 @@ export default function InterviewConfirmation({ formData, score, reasoning }) {
                         </ul>
                     </div>
                     <div>
-                        <h3 className={styles.subtitle}>What We're Looking For:</h3>
+                        <h3 className={styles.subtitle}>What We Are Looking For:</h3>
                         <ul className={styles.recommendationList}>
                             {role.traits.map((item, i) => (
                                 <li key={i} className={styles.recommendationItem}>🌟 {item}</li>

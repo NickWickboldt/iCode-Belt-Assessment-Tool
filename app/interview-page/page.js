@@ -5,9 +5,18 @@ import Navbar from '../components/Navbar/Navbar';
 import ChatLog from '../components/ChatLog/ChatLog';
 import LocationSelector from '../components/LocationSelector/LocationSelector';
 import InterviewForm from '../components/InterviewForm/InterviewForm';
-// Removed unused import: import { set } from 'mongoose';
+import { Suspense } from 'react';
 
-export default function InstructorPage() {
+
+export default function InterviewPage() {
+  return (
+    <Suspense fallback={<div>Loading interview page...</div>}>
+      <InstructorPage />
+    </Suspense>
+  );
+}
+
+function InstructorPage() {
     const [showChatLog, setShowChatLog] = useState(false);
     const [retakeAssessment, setRetakeAssessment] = useState(false);
     const [messages, setMessages] = useState([]);
