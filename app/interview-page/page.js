@@ -26,6 +26,7 @@ export default function InstructorPage() {
         // Prioritize URL param, but fall back to session storage
         if (locationFromParams) {
             setFranchiseLocation(locationFromParams);
+            sessionStorage.setItem('location', locationFromParams)
         } else if (locationFromSession) {
             setFranchiseLocation(locationFromSession);
         }

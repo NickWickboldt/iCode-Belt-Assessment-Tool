@@ -75,6 +75,12 @@
     cursor: not-allowed;
 }   
 
+.columnBox{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2vmin;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;

@@ -13,6 +13,8 @@ export default function InterviewForm() {
     // --- Existing State ---
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
     const [location, setLocation] = useState('');
     const [age, setAge] = useState(18);
     const [position, setPosition] = useState('Lead Instructor');
@@ -31,11 +33,12 @@ export default function InterviewForm() {
         if (storedFirstName) setFirstName(storedFirstName);
         if (storedLastName) setLastName(storedLastName);
         if (storedLocation) setLocation(storedLocation);
+
     }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const formData = { firstName, lastName, location, age, position };
+        const formData = { firstName, lastName, email, phone, location, age, position };
         
         setSubmittedData(formData);
         
@@ -48,7 +51,7 @@ export default function InterviewForm() {
 
     if (isSubmitted) {
         console.log('Form submitted:', submittedData);
-        return <Conversation agentId={process.env.NEXT_PUBLIC_AGENT_INTERVIEW} interviewType='Interview'/>;
+        return <Conversation agentId={process.env.NEXT_PUBLIC_AGENT_INTERVIEW} interviewType='Interview' formData={submittedData}/>;
     }
 
     return (
@@ -57,35 +60,65 @@ export default function InterviewForm() {
             className={`${styles.formContainer} ${isFadingOut ? styles.fadingOut : ''}`}
         >
             <h2 className={styles.header}>Before we get started...</h2>
+            <div className={styles.columnBox}>
+                {/* First Name */}
+                <div className={styles.inputGroup}>
+                    <label htmlFor="firstName">First Name</label>
+                    <input
+                        type="text"
+                        id="firstName"
+                        name="firstName"
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
+                        required
+                        readOnly={!!firstName}
+                        className={!!firstName ? styles.readOnlyInput : ''}
+                    />
+                </div>
 
-            {/* First Name */}
-            <div className={styles.inputGroup}>
-                <label htmlFor="firstName">First Name</label>
-                <input
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    required
-                    readOnly={!!firstName}
-                    className={!!firstName ? styles.readOnlyInput : ''}
-                />
+                {/* Last Name */}
+                <div className={styles.inputGroup}>
+                    <label htmlFor="lastName">Last Name</label>
+                    <input
+                        type="text"
+                        id="lastName"
+                        name="lastName"
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
+                        required
+                        readOnly={!!lastName}
+                        className={!!lastName ? styles.readOnlyInput : ''}
+                    />
+                </div>
             </div>
+            
 
-            {/* Last Name */}
-            <div className={styles.inputGroup}>
-                <label htmlFor="lastName">Last Name</label>
-                <input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    required
-                    readOnly={!!lastName}
-                    className={!!lastName ? styles.readOnlyInput : ''}
-                />
+            <div className={styles.columnBox}>
+                {/* User Email */}
+                <div className={styles.inputGroup}>
+                    <label htmlFor="email">Email</label>
+                    <input
+                        type="text"
+                        id="email"
+                        name="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                </div>
+
+                {/* Phone Number */}
+                <div className={styles.inputGroup}>
+                    <label htmlFor="phone">Phone Number</label>
+                    <input
+                        type="text"
+                        id="phone"
+                        name="phone"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        required
+                    />
+                </div>
             </div>
 
             {/* Location */}

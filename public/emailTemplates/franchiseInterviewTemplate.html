@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>New Applicant from iCode: Assessment AI</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        background-color: #f4f4f4;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        color: #333;
+      }
+      .container {
+        width: 600px;
+        max-width: 100%;
+        background: #fff;
+        margin: 20px auto;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .header {
+        background-color: #283139;
+        padding: 30px;
+        text-align: center;
+      }
+      .header h1 { font-size: 28px; color: #fff; }
+      .content { padding: 30px; }
+      .details { margin-top: 16px; width: 100%; border: 1px solid #e0e0e0; border-spacing: 0; }
+      .details td {
+        padding: 8px;
+        vertical-align: top;
+      }
+      .details td:first-child {
+        font-weight: bold;
+        width: 150px;
+      }
+      .details tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      .footer {
+        background-color: #f5f5f5;
+        padding: 20px;
+        text-align: center;
+        font-size: 12px;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="container">
+      <tr>
+        <td class="header">
+          <h1>New Interview Completed</h1>
+        </td>
+      </tr>
+      <tr>
+        <td class="content">
+          <p>Hello <strong>{{recipient_name}}</strong>,</p>
+          <p>A candidate has just completed their interview with Codie. Here are the details:</p>
+          <table class="details">
+            <tr><td>Name:</td><td>{{firstName}} {{lastName}}</td></tr>
+            <tr><td>Age:</td><td>{{age}}</td></tr>
+            <tr><td>Email:</td><td>{{email}}</td></tr>
+            <tr><td>Phone Number:</td><td>{{phone}}</td></tr>
+            <tr><td>Position Applied:</td><td>{{position}}</td></tr>
+            <tr><td>Score:</td><td>{{score}}</td></tr>
+            <tr><td>Reasoning:</td><td>{{reasoning}}</td></tr>
+            <tr><td>Recommendation:</td><td>{{recommendation}}</td></tr>
+          </table>
+          <p class="followup">Please review and follow up as appropriate.</p>
+          <p>Best regards,<br />The iCode Dev Team</p>
+        </td>
+      </tr>
+      <tr>
+        <td class="footer">
+          <p>iCode School • 4577 Ohio Dr, Frisco, TX 75035</p>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

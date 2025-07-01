@@ -8,11 +8,12 @@ import Codie from "../Codie/Codie";
 import styles from "./Conversation.module.css";
 import InterviewResult from "../InterviewResult/InterviewResult";
 
-export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation, agentId, interviewType="Assessment" }) {
+export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation, agentId, interviewType="Assessment", formData = null }) {
   const [transcript, setTranscript] = useState("");
   const [isRecommendation, setIsRecommendation] = useState(false);
   const [recommendation, setRecommendation] = useState('');
-  const [isInterviewCompleted, setIsInterviewCompleted] = useState(false);
+  const [reasoning, setReasoning] = useState('You have no skills.');
+  const [isInterviewCompleted, setIsInterviewCompleted] = useState(true);
   const [interviewScore, setInterviewScore] = useState(0);
   const [isStarting, setIsStarting] = useState(false);
   const [error, setError] = useState(null);
@@ -23,8 +24,9 @@ export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation
         setRecommendation(belt);
         setIsRecommendation(true);
       },
-      issueInterviewScore: async ({ score }) => {
+      issueInterviewScore: async ({ score, reasoning }) => {
         setInterviewScore(score);
+        setReasoning(reasoning);
         setIsInterviewCompleted(true);
       }
     },
@@ -113,7 +115,7 @@ export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation
         </div>
       </div>
       {isRecommendation ? <Recommendation retakeAssessment={setRetakeAssessment} recommendation={recommendation} franchiseLocation={franchiseLocation} /> : <></>}
-      {isInterviewCompleted ? <InterviewResult score={interviewScore}/> : <></>}
+      {isInterviewCompleted ? <InterviewResult score={interviewScore} reasoning={reasoning} formData={formData} /> : <></>}
       <Subtitles text={transcript} />
     </div>
   );
