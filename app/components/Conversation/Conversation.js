@@ -100,7 +100,7 @@ export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation
   }, [conversation]);
 
   return (
-    <div>
+    <div className={styles.mobileWrapper}>
       <Codie top={"50%"} left={"50%"} />
 
       <div className={styles.conversationContainer}>

@@ -36,3 +36,11 @@
   user-select: none; /* Prevents users from dragging the image */
   -webkit-user-drag: none; 
 }
+
+
+@media (max-width: 768px) {
+.codieImage{
+  width: 90vmin;
+  height:100vmin;
+}
+}

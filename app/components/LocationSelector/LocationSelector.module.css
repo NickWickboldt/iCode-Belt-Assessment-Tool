@@ -1,16 +1,20 @@
+/* Overlay stays full screen on all devices */
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7); /* Darker overlay for better focus */
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1010;
+  padding: 1rem; /* Ensure space from edges on smaller screens */
+  box-sizing: border-box;
 }
 
+/* Form box styling */
 .form {
   background: white;
   padding: 2rem;
@@ -20,15 +24,32 @@
   max-width: 400px;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
-.formBtn{
+/* Form button alignment */
+.formBtn {
   align-self: flex-end;
 }
 
+/* When background is blurred */
 .blurred {
   filter: blur(8px);
   pointer-events: none;
   user-select: none;
   transition: filter 0.3s ease-in-out;
+}
+
+/* ✅ Mobile-specific tweaks */
+@media (max-width: 480px) {
+  .form {
+    padding: 1.2rem;
+    max-width: 90vw;
+  }
+
+  .formBtn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 1rem;
+  }
 }

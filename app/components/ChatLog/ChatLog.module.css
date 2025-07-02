@@ -1,20 +1,19 @@
 .wrapper {
-  width: 60vmin; 
+  width: 60vmin;
   height: 80vmin;
   position: absolute;
-   transform: translateX(102%) translateY(50%);
-  /* changing right will have to change translateX too */
-  right: 1vmin;
+  right: 0;
   bottom: 50%;
-  margin: auto;
+  transform: translateX(100%) translateY(50%);
   display: flex;
   align-items: center;
   justify-content: center;
-  
   transition: transform 0.3s ease-in-out;
+  z-index: 2000;
 }
 .wrapperOpen {
   /* remove the X-offset but keep the Y-centering */
+  display: flex;
   transform: translateX(0) translateY(50%);
 }
 
@@ -48,4 +47,19 @@
   text-align: right;
   background-color: var(--pace);
   align-self: flex-end;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    width: 50vw;
+    height: 30vh;
+    overflow-y: hidden;
+    display: none;
+    transform: translateX(0%) translateY(200%);
+  }
+  .wrapperOpen {
+    /* remove the X-offset but keep the Y-centering */
+    display: flex;
+    transform: translateX(0) translateY(20%);
+  }
 }

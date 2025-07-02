@@ -1,5 +1,6 @@
 .container {
   position: absolute;
+  width: 40vmin;
   left: 50%;
   top: 10vmin;
   transform: translateX(-50%);
@@ -10,6 +11,10 @@
   background-color: #ffffff;
 }
 
+.authMessage {
+  margin-top: 2vmin;
+  text-align: center;
+}
 
 .centerContainer {
   display: flex;
@@ -18,4 +23,12 @@
   justify-content: center;
   width: 100%;
   padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    top: 40vmin;
+    width: 90vmin;
+    padding: 4vmin;
+  }
 }

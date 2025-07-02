@@ -103,9 +103,9 @@ export default function LoginModal({ addMessage }) {
     </div>
   ) : (
     <div className={`${styles.container} div-container`}>
-      <h1>Sign In</h1>
+      <h1 className='header-title'>Sign In</h1>
       <GoogleSignInButton onSignIn={handleCredentialResponse} />
-      <p id="authMessage">Please sign in with Google</p>
+      <p className={`${styles.authMessage}`} id="authMessage">Please sign in with Your Franchise Google Account</p>
     </div>
   );
 }

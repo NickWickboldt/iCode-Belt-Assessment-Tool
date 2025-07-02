@@ -79,3 +79,11 @@
   }
 }
 
+@media (max-width: 768px) {
+.conversationWrapper {
+  margin-top: 0;
+  height: 60vh;
+ 
+}
+}
+
