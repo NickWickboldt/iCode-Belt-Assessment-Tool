@@ -174,7 +174,7 @@ export default function InterviewForm({addMessage}) {
                 >
                     <option value="Lead Instructor">Lead Instructor</option>
                     <option value="Lab Mentor">Lab Mentor</option>
-                    <option value="Dictector">Director</option>
+                    <option value="Campus Director">Campus Director</option>
                 </select>
             </div>
 
