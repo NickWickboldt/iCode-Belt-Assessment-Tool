@@ -12,7 +12,8 @@
     left: 50%; 
     transform: translate(-50%, -50%);
     opacity: 1;
-    transition: opacity 0.5s ease-in-out; 
+    transition: opacity 0.5s ease-in-out;
+
 }
 
 .formContainer.fadingOut {
@@ -92,34 +93,92 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1600px) {
     .formContainer {
-        width: 90%;
-        max-width: 90%;
-        min-width: unset;
-        padding: 1.5rem;
-        top: 65%;
+        max-width: 60vw;
+        min-width: 50vw;
+        padding: 2vh 2vw;
+        top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        max-height: 90vh;
     }
 
     .header {
-        font-size: 1.5rem;
+        font-size: 2.5vh;
+        margin-bottom: 2vh;
     }
 
     .submitButton {
-        font-size: 4vmin;
-        padding: 1rem;
+        font-size: 2vh;
+        padding: 1.2vh;
+    }
+
+    .columnBox {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2vw;
+    }
+
+    .inputGroup input,
+    .inputGroup select {
+        font-size: 2vh;
+        padding: 1.2vh 1vw;
+    }
+
+    .inputGroup {
+        margin-bottom: 2vh;
+    }
+
+    .inputGroup label {
+        font-size: 1.8vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .formContainer {
+        width: 90vw;
+        max-width: 90vw;
+        padding: 2vh 4vw;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-height: 90vh;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .header {
+        font-size: 2.2vh;
+        margin-bottom: 1.5vh;
+        text-align: center;
+    }
+
+    .submitButton {
+        font-size: 2vh;
+        padding: 1.2vh;
+        margin-top: 1.5vh;
     }
 
     .columnBox {
         grid-template-columns: 1fr;
         column-gap: 0;
+        row-gap: 1.5vh;
+    }
+
+    .inputGroup {
+        margin-bottom: 1.5vh;
+    }
+
+    .inputGroup label {
+        font-size: 1.6vh;
+        margin-bottom: 0.5vh;
     }
 
     .inputGroup input,
     .inputGroup select {
-        font-size: 1rem;
-        padding: 0.75rem;
+        font-size: 1.8vh;
+        padding: 1vh;
     }
 }

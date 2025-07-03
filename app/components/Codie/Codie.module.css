@@ -9,6 +9,7 @@
   align-items: center;
   /* transform: translate(50%, -50%); */
   animation: float 2s ease-in-out infinite;
+  overflow: hidden;
 }
 
 
@@ -35,8 +36,15 @@
   filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.1));
   user-select: none; /* Prevents users from dragging the image */
   -webkit-user-drag: none; 
+
 }
 
+@media (max-width: 1600px) {
+.codieImage{
+  width: 90vmin;
+  height:100vmin;
+}
+}
 
 @media (max-width: 768px) {
 .codieImage{

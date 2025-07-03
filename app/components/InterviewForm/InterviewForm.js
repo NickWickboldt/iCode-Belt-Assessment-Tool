@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './InterviewForm.module.css';
 import { Conversation } from '../Conversation/Conversation';
 import { useMemo } from 'react';
@@ -21,6 +21,10 @@ export default function InterviewForm({addMessage}) {
     const [position, setPosition] = useState('Lead Instructor');
     const [submittedData, setSubmittedData] = useState(null);
 
+    const firstNamePreFilled = useRef(false);
+    const lastNamePreFilled = useRef(false);
+
+
     // --- New State for UI Transitions ---
     const [isFadingOut, setIsFadingOut] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -31,8 +35,15 @@ export default function InterviewForm({addMessage}) {
         const storedLastName = sessionStorage.getItem('lastName');
         const storedLocation = sessionStorage.getItem('location');
 
-        if (storedFirstName) setFirstName(storedFirstName);
-        if (storedLastName) setLastName(storedLastName);
+        if (storedFirstName) {
+            setFirstName(storedFirstName);
+            firstNamePreFilled.current = true;
+        }
+
+        if (storedLastName) {
+            setLastName(storedLastName);
+            lastNamePreFilled.current = true;
+        }
         if (storedLocation) setLocation(storedLocation);
 
     }, []);
@@ -83,8 +94,8 @@ export default function InterviewForm({addMessage}) {
                         value={firstName}
                         onChange={(e) => setFirstName(e.target.value)}
                         required
-                        readOnly={!!firstName}
-                        className={!!firstName ? styles.readOnlyInput : ''}
+                        readOnly={firstNamePreFilled.current}
+                        className={firstNamePreFilled.current ? styles.readOnlyInput : ''}
                     />
                 </div>
 
@@ -98,8 +109,8 @@ export default function InterviewForm({addMessage}) {
                         value={lastName}
                         onChange={(e) => setLastName(e.target.value)}
                         required
-                        readOnly={!!lastName}
-                        className={!!lastName ? styles.readOnlyInput : ''}
+                        readOnly={lastNamePreFilled.current}
+                        className={lastNamePreFilled.current ? styles.readOnlyInput : ''}
                     />
                 </div>
             </div>
