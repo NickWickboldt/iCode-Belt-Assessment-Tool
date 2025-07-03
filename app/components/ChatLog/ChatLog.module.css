@@ -49,17 +49,33 @@
   align-self: flex-end;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .wrapper {
-    width: 50vw;
-    height: 30vh;
+    width: 70vw;
+    height: 40vh;
     overflow-y: hidden;
     display: none;
     transform: translateX(0%) translateY(200%);
   }
+
   .wrapperOpen {
-    /* remove the X-offset but keep the Y-centering */
     display: flex;
     transform: translateX(0) translateY(20%);
   }
 }
+
+@media (max-width: 768px) {
+  .wrapper {
+    width: 90vw;
+    height: 35vh;
+    overflow-y: hidden;
+    display: none;
+    transform: translateX(0%) translateY(200%);
+  }
+
+  .wrapperOpen {
+    display: flex;
+    transform: translateX(0) translateY(20%);
+  }
+}
+

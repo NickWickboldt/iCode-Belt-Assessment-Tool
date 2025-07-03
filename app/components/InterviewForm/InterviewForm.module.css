@@ -92,34 +92,55 @@
     }
 }
 
+/* Base styles unchanged (formContainer, inputGroup, etc.) */
+
+/* --------- Tablet (1024px and down) --------- */
+@media (max-width: 1024px) {
+  .formContainer {
+    width: 80%;
+    max-width: 90%;
+    padding: 2rem;
+    transform: translate(-50%, -50%);
+  }
+
+  .columnBox {
+    grid-template-columns: 1fr;
+  }
+
+  .submitButton {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .header {
+    font-size: 1.75rem;
+  }
+}
+
+/* --------- Mobile (768px and down) --------- */
 @media (max-width: 768px) {
-    .formContainer {
-        width: 90%;
-        max-width: 90%;
-        min-width: unset;
-        padding: 1.5rem;
-        top: 65%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
+  .formContainer {
+    width: 95%;
+    padding: 1.5rem;
+    transform: translate(-50%, -35%);
+  }
 
-    .header {
-        font-size: 1.5rem;
-    }
+  .header {
+    font-size: 1.5rem;
+  }
 
-    .submitButton {
-        font-size: 4vmin;
-        padding: 1rem;
-    }
+  .submitButton {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
 
-    .columnBox {
-        grid-template-columns: 1fr;
-        column-gap: 0;
-    }
+  .columnBox {
+    grid-template-columns: 1fr;
+  }
 
-    .inputGroup input,
-    .inputGroup select {
-        font-size: 1rem;
-        padding: 0.75rem;
-    }
+  .inputGroup input,
+  .inputGroup select {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
 }
