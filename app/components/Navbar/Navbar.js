@@ -8,7 +8,7 @@ export default function Navbar({ setShowChatLog, retakeAssessment, chatlogIsOpen
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarContainer}>
-        {/* Logo on the far left */}
+        {/* Logo on the far left
         <div className={styles.logoContainer}>
           <Link href="/" passHref onClick={() => { window.location.href="/"; }}>
             <Image
@@ -19,7 +19,7 @@ export default function Navbar({ setShowChatLog, retakeAssessment, chatlogIsOpen
               priority
             />
           </Link>
-        </div>
+        </div> */}
 
         {/* Navigation Buttons on the far right */}
         <div className={styles.navLinks}>
@@ -39,13 +39,13 @@ export default function Navbar({ setShowChatLog, retakeAssessment, chatlogIsOpen
           {/* <button className={`${styles.navButton} primary-button btn`}>
             Legacy Assessment
           </button> */}
-          {showInstructorPage && (
+          {/* {showInstructorPage && (
           <Link href={`/instructor-page?location=${franchiseLocation}`}>
             <button className={`${styles.navButton} primary-button btn`}>
               Instructor Assessment
             </button>
           </Link>
-          )}
+          )} */}
         </div>
       </div>
     </nav>
