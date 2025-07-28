@@ -1,17 +1,22 @@
 'use client'
 import beltData from '@/data/belt_data.json';
-import { useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react'
 import styles from "./Recommendation.module.css";
 import { getCanonicalBeltKey } from '@/lib/utils';
 
-export default function Recommendation({ recommendation, retakeAssessment, franchiseLocation }) {
+export default function Recommendation({ recommendation, retakeAssessment }) {
   // Destructure the recommendation object for easier access
-  const [showForm, setShowForm] = useState(true)
-  const canonicalKey = getCanonicalBeltKey(recommendation);
+  const [showForm, setShowForm] = useState(true);
+  
+  // State variables for form inputs
+  const [studentName, setStudentName] = useState('');
+  const [studentAge, setStudentAge] = useState(10); // Changed to string for input type="number" to handle empty initial state
+  const [parentName, setParentName] = useState('');
+  const [parentEmail, setParentEmail] = useState('');
+  const [parentPhone, setParentPhone] = useState('');
+
+  const canonicalKey = getCanonicalBeltKey(recommendation.recommendation);
   const data = canonicalKey ? beltData[canonicalKey] : null;
-
-
 
   //Call retakeAssessment(true) to enable the Retake Assessment button
   useEffect(() => {
@@ -21,75 +26,45 @@ export default function Recommendation({ recommendation, retakeAssessment, franc
     }
   }, [data, retakeAssessment]);
 
-
   if (!data) {
     return null;
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    const form = e.target
+    e.preventDefault();
 
-    const name = form.name.value;
-    const email = form.email.value;
-    const phone = form.phone.value;
-    const url = window.location.href;
+    // Use the state variables directly
+    const belt_level = recommendation.recommendation;
+    const summary = recommendation.summary; // Renamed from recommendationSummary to match target object
+    const score = recommendation.score; // Renamed from recommendationScore to match target object
 
-    //use the location to get all the franchise info
+    const timestamp = new Date().toISOString();
 
-
-    console.log(franchiseLocation)
-    const franchiseTemplateData = await fetch('/emailTemplates/franchiseMailTemplate.html');
-    let franchiseTemplate = await franchiseTemplateData.text();
-    const franchiseEmail = "entbit12@gmail.com"
-    const franchiseVars = {
-      student_name: name,
-      student_phone: phone,
-      student_email: email,
-      belt_recommendation: data.title,
-      recipient_name: "franchise name"
+    const formData = {
+      student_name: studentName,
+      student_age: studentAge, // student_age is already a string from input or will be converted by backend if needed
+      belt_level,
+      score,
+      summary,
+      timestamp,
+      parent_name: parentName,
+      parent_email: parentEmail,
+      parent_phone: parentPhone,
     };
 
-    for (let key in franchiseVars) {
-      const re = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
-      franchiseTemplate = franchiseTemplate.replace(re, franchiseVars[key]);
+    const structuredSender = {
+      event: 'assessmentComplete',
+      payload: formData
     }
 
-    const userTemplateData = await fetch('/emailTemplates/userMailTemplate.html');
-    let userTemplate = await userTemplateData.text();
+    console.log(structuredSender); 
 
-    const userVars = {
-      student_name: name,
-      belt_recommendation: data.title,
-      icode_franchise_name: "franchise name",
-      icode_franchise_location: "location",
-      icode_franchise_phone: "45465466546",
-      icode_franchise_email: franchiseEmail
-    };
+    window.parent.postMessage({
+      structuredSender
+    }, '*')
 
-    for (let key in userVars) {
-      const re = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
-      userTemplate = userTemplate.replace(re, userVars[key]);
-    }
-
-
-    try {
-      const response = await fetch(
-        'https://nicholaswickboldt.app.n8n.cloud/webhook/recieve-emails',
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, phone, url, data, franchiseTemplate, userTemplate, franchiseEmail })
-        }
-      )
-      if (!response.ok) {
-        console.error('Failed to send data:', response.statusText)
-      }
-    } catch (err) {
-      console.error('Error sending data:', err)
-    }
-    setShowForm(false)
-  }
+    setShowForm(false);
+  };
 
   return (
     <>
@@ -98,22 +73,66 @@ export default function Recommendation({ recommendation, retakeAssessment, franc
           <form onSubmit={handleSubmit} className={styles.form}>
             <h3 className='header-title'>Enter your details to unlock Codie’s recommendation</h3>
             <div className={`input-container`}>
-              <label>Name</label>
-              <input type="text" id="name" name="name" required />
-            </div>
-            <div className={`input-container`}>
-              <label>Email</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-            <div className={`input-container`}>
-              <label>Phone</label>
+              <label htmlFor="student_name">Student Name</label>
               <input
-                type="tel" id="phone" name="phone" required inputMode="numeric" pattern="\d{10}" maxLength={10}
-                onInput={e => {
-                  e.currentTarget.value = e.currentTarget.value
-                    .replace(/\D/g, '')
-                    .slice(0, 10);
+                type="text"
+                id="student_name"
+                name="student_name"
+                value={studentName}
+                onChange={(e) => setStudentName(e.target.value)}
+                required
+              />
+            </div>
+            <div className={`input-container`}>
+              <label htmlFor="student_age">Student Age</label>
+              <input
+                type="number"
+                id="student_age"
+                name="student_age"
+                value={studentAge}
+                onChange={(e) => setStudentAge(e.target.value)}
+                required
+                min={4}
+                max={18}
+              />
+            </div>
+            <div className={`input-container`}>
+              <label htmlFor="parent_name">Parent Name</label>
+              <input
+                type="text"
+                id="parent_name"
+                name="parent_name"
+                value={parentName}
+                onChange={(e) => setParentName(e.target.value)}
+                required
+              />
+            </div>
+            <div className={`input-container`}>
+              <label htmlFor="parent_email">Parent Email</label>
+              <input
+                type="email"
+                id="parent_email"
+                name="parent_email"
+                value={parentEmail}
+                onChange={(e) => setParentEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div className={`input-container`}>
+              <label htmlFor="parent_phone">Parent Phone</label>
+              <input
+                type="tel"
+                id="parent_phone"
+                name="parent_phone"
+                value={parentPhone}
+                onChange={e => {
+                  const cleanedValue = e.target.value.replace(/\D/g, '').slice(0, 10);
+                  setParentPhone(cleanedValue);
                 }}
+                required
+                inputMode="numeric"
+                pattern="\d{10}"
+                maxLength={10}
               />
             </div>
             <button type="submit" className={`${styles.formBtn} btn primary-button`}>

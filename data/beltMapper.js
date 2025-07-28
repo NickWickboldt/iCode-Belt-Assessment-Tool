@@ -12,7 +12,8 @@ export const beltAliasMapping = {
     'jr. stem',
     'jr stem belt',
     'stem jr',
-    'stem jr belt'
+    'stem jr belt',
+    'stem jr. belt'
   ],
 
   // The key 'foundation' maps to these possible inputs

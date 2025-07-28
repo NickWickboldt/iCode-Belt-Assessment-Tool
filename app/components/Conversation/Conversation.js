@@ -9,10 +9,10 @@ import styles from "./Conversation.module.css";
 import InterviewResult from "../InterviewResult/InterviewResult";
 import ReadinessComplete from "../ReadinessComplete/ReadinessComplete";
 
-export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation, agentId, interviewType="Assessment", formData = null, belt=null }) {
+export function Conversation({ addMessage,setRetakeAssessment, agentId, interviewType="Assessment", formData = null, belt=null }) {
   const [transcript, setTranscript] = useState("");
   const [isRecommendation, setIsRecommendation] = useState(false);
-  const [recommendation, setRecommendation] = useState('');
+  const [recommendation, setRecommendation] = useState({});
   const [reasoning, setReasoning] = useState('');
   const [isInterviewCompleted, setIsInterviewCompleted] = useState(false);
   const [interviewScore, setInterviewScore] = useState(0);
@@ -24,6 +24,7 @@ export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation
   const conversation = useConversation({
     clientTools: {
       issueRecommendation: async ({ belt }) => {
+        console.log("BELT OBJ", belt); 
         setRecommendation(belt);
         setIsRecommendation(true);
       },
@@ -130,7 +131,7 @@ export function Conversation({ addMessage,setRetakeAssessment, franchiseLocation
           <p>Codie is {conversation.isSpeaking ? "speaking" : "listening"}</p>
         </div>
       </div>
-      {isRecommendation ? <Recommendation retakeAssessment={setRetakeAssessment} recommendation={recommendation} franchiseLocation={franchiseLocation} /> : <></>}
+      {isRecommendation ? <Recommendation retakeAssessment={setRetakeAssessment} recommendation={recommendation} /> : <></>}
       {isInterviewCompleted ? <InterviewResult score={interviewScore} reasoning={reasoning} formData={formData} /> : <></>}
       { isReadinessComplete ? <ReadinessComplete readinessEvaluation={readinessEvaluation} belt={belt} /> : <></> }
       <Subtitles text={transcript} />
