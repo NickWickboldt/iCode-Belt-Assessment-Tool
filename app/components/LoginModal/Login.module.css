@@ -32,3 +32,16 @@
     padding: 4vmin;
   }
 }
+
+.loginHeader{
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+  align-items: center;
+  margin-bottom: 2vmin;
+}
+
+.loginHeader > h1{
+  margin-left:2vmin;
+  margin-bottom: 0 !important; 
+}

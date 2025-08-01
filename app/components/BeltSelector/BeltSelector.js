@@ -62,7 +62,7 @@ export default function BeltSelector({addMessage}) {
         <div className={styles.conversationWrapper}>
           <Conversation addMessage={addMessage} agentId={AGENT_MAP[selectedBelt.key]} belt={selectedBelt.title}/>
           <button
-            className={`${styles.backButton} btn primary-button`}
+            className={`${styles.backButton} btn`}
             onClick={() => setSelectedBelt(null)}
           >
             Back to Selection

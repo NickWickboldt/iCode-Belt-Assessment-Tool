@@ -57,6 +57,15 @@
 }
 
 .backButton {
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+  background-color: var(--designer-black);
   z-index: 1000;
 }
 

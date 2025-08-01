@@ -9,7 +9,7 @@ import styles from "./Conversation.module.css";
 import InterviewResult from "../InterviewResult/InterviewResult";
 import ReadinessComplete from "../ReadinessComplete/ReadinessComplete";
 
-export function Conversation({ addMessage,setRetakeAssessment, agentId, interviewType="Assessment", formData = null, belt=null }) {
+export function Conversation({ addMessage,setRetakeAssessment, agentId, interviewType="Assessment", formData = null, belt=null, activeBelts=null }) {
   const [transcript, setTranscript] = useState("");
   const [isRecommendation, setIsRecommendation] = useState(false);
   const [recommendation, setRecommendation] = useState({});
@@ -42,9 +42,8 @@ export function Conversation({ addMessage,setRetakeAssessment, agentId, intervie
         sessionStorage.setItem('lastName', lastName);
       },
       getActiveBelts: async () => {
-        console.log("EXECUTED BELT RETRIEVAL")
         return {
-          "beltData": "temp, ignore for now"
+          "beltData": activeBelts
         }
       }
     },

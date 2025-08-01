@@ -5,13 +5,14 @@ import Navbar from "./components/Navbar/Navbar";
 import ChatLog from "./components/ChatLog/ChatLog";
 import { Conversation } from "./components/Conversation/Conversation";
 
-function PageContent({ addMessage, setRetakeAssessment }) {
+function PageContent({ addMessage, setRetakeAssessment, activeBelts }) {
   return (
     <>
         <Conversation
           addMessage={addMessage}
           setRetakeAssessment={setRetakeAssessment}
           agentId={process.env.NEXT_PUBLIC_AGENT_KEY}
+          activeBelts={activeBelts} // Pass activeBelts to Conversation
         />
     </>
   );
@@ -23,10 +24,28 @@ export default function Home() {
   const [messages, setMessages] = useState([]);
   const [micStatus, setMicStatus] = useState('loading');
   const [micError, setMicError] = useState(null);
+  const [activeBelts, setActiveBelts] = useState([]); // State for active_belts
 
   const addMessage = (msg) => {
     setMessages(prev => [...prev, msg]);
   };
+
+  // Listen for postMessage to initialize data
+  useEffect(() => {
+    const handlePostMessage = (event) => {
+      const { data } = event;
+      if (data && data.event === 'initializeData' && data.payload?.active_belts) {
+        console.log('Received active belts:', data.payload.active_belts);
+        setActiveBelts(data.payload.active_belts);
+      }
+    };
+
+    window.addEventListener('message', handlePostMessage);
+
+    return () => {
+      window.removeEventListener('message', handlePostMessage);
+    };
+  }, []); // Empty dependency array ensures this runs only once on mount
 
   useEffect(() => {
     let isMounted = true;
@@ -71,6 +90,7 @@ export default function Home() {
           <PageContent
             addMessage={addMessage}
             setRetakeAssessment={setRetakeAssessment}
+            activeBelts={activeBelts} 
           />
       </div>
     </div>

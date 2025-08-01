@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from "./Login.module.css";
 import BeltSelector from '../BeltSelector/BeltSelector';
+import Image from 'next/image';
 
 // --- Helper Component: GoogleSignInButton (no changes needed here) ---
 function GoogleSignInButton({ onSignIn }) {
@@ -103,9 +104,12 @@ export default function LoginModal({ addMessage }) {
     </div>
   ) : (
     <div className={`${styles.container} div-container`}>
-      <h1 className='header-title'>Sign In</h1>
+      <div className={styles.loginHeader}>
+        <Image width={40} height={40} src={'/icode-logo.png'} alt='icode-logo'/>
+        <h1 className='header-title'>Sign In</h1>
+      </div>
       <GoogleSignInButton onSignIn={handleCredentialResponse} />
-      <p className={`${styles.authMessage}`} id="authMessage">Please sign in with Your Franchise Google Account</p>
+      <p className={`${styles.authMessage}`} id="authMessage">Please sign in with an <i>@icodeschool</i> email.</p>
     </div>
   );
 }
