@@ -24,7 +24,7 @@ export function Conversation({ addMessage,setRetakeAssessment, agentId, intervie
   const conversation = useConversation({
     clientTools: {
       issueRecommendation: async ({ belt }) => {
-        console.log("BELT OBJ", belt); 
+        console.log(belt)
         setRecommendation(belt);
         setIsRecommendation(true);
       },
@@ -40,13 +40,21 @@ export function Conversation({ addMessage,setRetakeAssessment, agentId, intervie
       setName: async ({ firstName, lastName }) => {
         sessionStorage.setItem('firstName', firstName);
         sessionStorage.setItem('lastName', lastName);
+      },
+      getActiveBelts: async () => {
+        console.log("EXECUTED BELT RETRIEVAL")
+        return {
+          "beltData": "temp, ignore for now"
+        }
       }
     },
     streaming: true,
     onConnect: () => console.log("Connected"),
-    onDisconnect: () => console.log("Disconnected"),
+    onDisconnect: () => {
+      console.log("Disconnected"); 
+      setTranscript(""); 
+    },
     onMessage: (msg) => {
-      console.log(msg)
       let payload = typeof msg === "string" ? JSON.parse(msg) : msg;
       const text = payload.text ?? payload.message ?? "";
       console.log(text);
@@ -134,7 +142,7 @@ export function Conversation({ addMessage,setRetakeAssessment, agentId, intervie
       {isRecommendation ? <Recommendation retakeAssessment={setRetakeAssessment} recommendation={recommendation} /> : <></>}
       {isInterviewCompleted ? <InterviewResult score={interviewScore} reasoning={reasoning} formData={formData} /> : <></>}
       { isReadinessComplete ? <ReadinessComplete readinessEvaluation={readinessEvaluation} belt={belt} /> : <></> }
-      <Subtitles text={transcript} />
+      <Subtitles  text={transcript} />
     </div>
   );
 }

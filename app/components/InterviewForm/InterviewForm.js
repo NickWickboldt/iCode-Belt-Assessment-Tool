@@ -16,7 +16,6 @@ export default function InterviewForm({addMessage}) {
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
-    const [location, setLocation] = useState('');
     const [age, setAge] = useState(18);
     const [position, setPosition] = useState('Lead Instructor');
     const [submittedData, setSubmittedData] = useState(null);
@@ -50,7 +49,7 @@ export default function InterviewForm({addMessage}) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const formData = { firstName, lastName, email, phone, location, age, position };
+        const formData = { firstName, lastName, email, phone, age, position };
 
         setSubmittedData(formData);
 
@@ -114,51 +113,41 @@ export default function InterviewForm({addMessage}) {
                     />
                 </div>
             </div>
-
-
             <div className={styles.columnBox}>
                 {/* User Email */}
+                {/* Email */}
                 <div className={styles.inputGroup}>
                     <label htmlFor="email">Email</label>
                     <input
-                        type="text"
+                        type="email"
                         id="email"
                         name="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
+                        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                        title="Please enter a valid email address."
                     />
                 </div>
 
                 {/* Phone Number */}
-                <div className={styles.inputGroup}>
+               <div className={styles.inputGroup}>
                     <label htmlFor="phone">Phone Number</label>
                     <input
-                        type="text"
+                        type="tel"
                         id="phone"
                         name="phone"
                         value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
+                        onChange={(e) => {
+                            const formattedPhoneNumber = e.target.value.replace(/[^\d]/g, '');
+                            setPhone(formattedPhoneNumber.substring(0, 10));
+                        }}
                         required
+                        pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$"
+                        title="Please enter a valid 10-digit phone number."
                     />
                 </div>
             </div>
-
-            {/* Location */}
-            <div className={styles.inputGroup}>
-                <label htmlFor="location">Location</label>
-                <input
-                    type="text"
-                    id="location"
-                    name="location"
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
-                    required
-                    readOnly={true}
-                    className={styles.readOnlyInput}
-                />
-            </div>
-
             {/* Age */}
             <div className={styles.inputGroup}>
                 <label htmlFor="age">Age</label>
