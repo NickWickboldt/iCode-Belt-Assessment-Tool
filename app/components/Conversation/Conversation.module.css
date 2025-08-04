@@ -12,6 +12,7 @@
   gap: 1rem; /* spacing between button, status, subtitles */
   font-family: sans-serif;
   overflow-y: hidden;
+  width: 55%;
 }
 
 .buttonGroup {
@@ -36,4 +37,117 @@
 
 @media (max-width: 768px) {
 
+}
+
+.textInputForm {
+  display: flex;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.textInputForm input {
+  flex-grow: 1;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px 0 0 8px;
+  outline: none;
+  font-size:2.5vmin;
+}
+
+.textInputForm input:focus {
+  border-color: #007bff; /* Or your primary color */
+}
+
+.textInputForm button {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #007bff;
+  border-left: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 0 8px 8px 0;
+  white-space: nowrap;
+  font-size:2.5vmin;
+}
+
+.textInputForm button:disabled {
+  background-color: #a0a0a0;
+  border-color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+.modeSelector {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.modeSelector button {
+  flex-grow: 1;
+  padding: 0.75rem;
+  border: none;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size:2vmin;
+}
+
+.modeSelector button:first-child {
+  border-right: 1px solid #ccc;
+}
+
+.modeSelector button.activeMode {
+  background-color: #007bff; /* Or your primary color */
+  color: white;
+  font-weight: bold;
+}
+
+/* Conversation.module.css */
+
+.chatWindow {
+  position: absolute;
+  top: 2vmin; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 800px;
+  height: 60%; 
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 2vmin;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2vmin;
+  z-index: 10;
+}
+
+.chatBubble {
+  padding: 1vmin 2vmin;
+  border-radius: 18px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.chatBubble p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.chatBubble.user {
+  background-color: #007bff; /* Your primary color */
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.chatBubble.ai {
+  background-color: #e9e9eb;
+  color: #333;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
 }

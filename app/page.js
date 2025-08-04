@@ -11,11 +11,14 @@ function PageContent({ addMessage, setRetakeAssessment, activeBelts }) {
         <Conversation
           addMessage={addMessage}
           setRetakeAssessment={setRetakeAssessment}
-          agentId={process.env.NEXT_PUBLIC_AGENT_KEY}
+          agentId={{
+            voice: process.env.NEXT_PUBLIC_AGENT_KEY,
+            text: process.env.NEXT_PUBLIC_AGENT_KEY_TEXT
+          }}
           activeBelts={activeBelts} // Pass activeBelts to Conversation
         />
     </>
-  );
+  );f
 }
 
 export default function Home() {
