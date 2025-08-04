@@ -76,7 +76,6 @@ export function Conversation({ addMessage, setRetakeAssessment, agentId, intervi
             sessionStorage.setItem('lastName', lastName);
         },
         getActiveBelts: async () => {
-            activeBelts = ["foundation belt", "orange belt", "black belt"]
             return {"beltData": activeBelts};
         },
     },
@@ -141,10 +140,8 @@ export function Conversation({ addMessage, setRetakeAssessment, agentId, intervi
     setError(null);
     setMessages([]);
 
-    // --- MODIFICATION START ---
     // Select the correct agent ID based on the current input mode.
     const selectedAgentId = inputMode === 'voice' ? agentId.voice : agentId.text;
-    console.log(agentId)
     // Add a check to ensure an ID exists for the selected mode.
     if (!selectedAgentId) {
         const errorMessage = `Configuration Error: No agent ID found for ${inputMode} mode.`;
@@ -153,17 +150,12 @@ export function Conversation({ addMessage, setRetakeAssessment, agentId, intervi
         setIsStarting(false);
         return;
     }
-    // --- MODIFICATION END ---
 
     try {
         if (inputMode === 'voice') {
-            console.log(`Starting VOICE conversation with agent: ${selectedAgentId}`);
             await navigator.mediaDevices.getUserMedia({ audio: true });
-        } else {
-            console.log(`Starting TEXT conversation with agent: ${selectedAgentId}`);
         }
 
-        // Use the dynamically selected agent ID to start the session.
         await conversation.startSession({ agentId: selectedAgentId });
 
     } catch (e) {

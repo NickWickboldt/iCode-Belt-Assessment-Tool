@@ -6,16 +6,46 @@ import { Conversation } from '../Conversation/Conversation'
 
 // Map belt keys to environment agent IDs
 const AGENT_MAP = {
-  'jr-stem': process.env.NEXT_PUBLIC_AGENT_STEM_JR,
-  foundation: process.env.NEXT_PUBLIC_AGENT_FOUNDATION,
-  gray: process.env.NEXT_PUBLIC_AGENT_GRAY,
-  white: process.env.NEXT_PUBLIC_AGENT_WHITE,
-  orange: process.env.NEXT_PUBLIC_AGENT_ORANGE,
-  yellow: process.env.NEXT_PUBLIC_AGENT_YELLOW,
-  green: process.env.NEXT_PUBLIC_AGENT_GREEN,
-  red: process.env.NEXT_PUBLIC_AGENT_RED,
-  blue: process.env.NEXT_PUBLIC_AGENT_BLUE,
-  black: process.env.NEXT_PUBLIC_AGENT_BLACK,
+  'jr-stem': {
+    voice: process.env.NEXT_PUBLIC_AGENT_STEM_JR,
+    text: process.env.NEXT_PUBLIC_AGENT_STEM_JR_TEXT,
+  },
+  foundation: {
+    voice: process.env.NEXT_PUBLIC_AGENT_FOUNDATION,
+    text: process.env.NEXT_PUBLIC_AGENT_FOUNDATION_TEXT,
+  },
+  gray: {
+    voice: process.env.NEXT_PUBLIC_AGENT_GRAY,
+    text: process.env.NEXT_PUBLIC_AGENT_GRAY_TEXT,
+  },
+  white: {
+    voice: process.env.NEXT_PUBLIC_AGENT_WHITE,
+    text: process.env.NEXT_PUBLIC_AGENT_WHITE_TEXT,
+  },
+  orange: {
+    voice: process.env.NEXT_PUBLIC_AGENT_ORANGE,
+    text: process.env.NEXT_PUBLIC_AGENT_ORANGE_TEXT,
+  },
+  yellow: {
+    voice: process.env.NEXT_PUBLIC_AGENT_YELLOW,
+    text: process.env.NEXT_PUBLIC_AGENT_YELLOW_TEXT,
+  },
+  green: {
+    voice: process.env.NEXT_PUBLIC_AGENT_GREEN,
+    text: process.env.NEXT_PUBLIC_AGENT_GREEN_TEXT,
+  },
+  red: {
+    voice: process.env.NEXT_PUBLIC_AGENT_RED,
+    text: process.env.NEXT_PUBLIC_AGENT_RED_TEXT,
+  },
+  blue: {
+    voice: process.env.NEXT_PUBLIC_AGENT_BLUE,
+    text: process.env.NEXT_PUBLIC_AGENT_BLUE_TEXT,
+  },
+  black: {
+    voice: process.env.NEXT_PUBLIC_AGENT_BLACK,
+    text: process.env.NEXT_PUBLIC_AGENT_BLACK_TEXT,
+  }
 }
 
 export default function BeltSelector({addMessage}) {

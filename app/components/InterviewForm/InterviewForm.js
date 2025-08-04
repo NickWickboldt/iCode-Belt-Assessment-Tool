@@ -65,7 +65,10 @@ export default function InterviewForm({addMessage}) {
         return (
             <Conversation
                 addMessage={addMessage}
-                agentId={process.env.NEXT_PUBLIC_AGENT_INTERVIEW}
+                agentId={{
+                    voice: process.env.NEXT_PUBLIC_AGENT_INTERVIEW,
+                    text: process.env.NEXT_PUBLIC_AGENT_INTERVIEW_TEXT
+                }}
                 interviewType="Interview"
                 formData={submittedData}
             />
