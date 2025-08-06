@@ -119,6 +119,7 @@ export function Conversation({ addMessage, setRetakeAssessment, agentId, intervi
   
   const handleTextSubmit = async (e) => {
     e.preventDefault();
+    window.parent.postMessage({ event: 'requestScrollIntoView' }, '*');
     if (!textInput.trim() || typeof conversation.sendUserMessage !== 'function') {
         return;
     }
@@ -136,6 +137,7 @@ export function Conversation({ addMessage, setRetakeAssessment, agentId, intervi
   };
 
   const startConversation = useCallback(async () => {
+    window.parent.postMessage({ event: 'requestScrollIntoView' }, '*');
     setIsStarting(true);
     setError(null);
     setMessages([]);
