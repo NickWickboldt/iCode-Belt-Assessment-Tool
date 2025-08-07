@@ -53,8 +53,13 @@ export function Conversation({ addMessage, setRetakeAssessment, agentId, intervi
   const [textInput, setTextInput] = useState("");
   const [isThinking, setIsThinking] = useState(false);
   const [inputMode, setInputMode] = useState('voice');
+  const activeBeltsRef = useRef(activeBelts);
   
   const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    activeBeltsRef.current = activeBelts;
+  }, [activeBelts]);
 
   const conversation = useConversation({
     clientTools: {
@@ -76,7 +81,8 @@ export function Conversation({ addMessage, setRetakeAssessment, agentId, intervi
             sessionStorage.setItem('lastName', lastName);
         },
         getActiveBelts: async () => {
-            return {"beltData": activeBelts};
+            console.log("Reading from ref:", activeBeltsRef.current);
+            return { "beltData": activeBeltsRef.current };
         },
     },
     streaming: true,
