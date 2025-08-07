@@ -18,9 +18,9 @@ function ChatWindow({ messages }) {
   //   endOfMessagesRef.current?.scrollIntoView({ behavior: "smooth" });
   // };
 
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
+  // useEffect(() => {
+  //   scrollToBottom();
+  // }, [messages]);
 
   if (messages.length === 0) {
     return null;
