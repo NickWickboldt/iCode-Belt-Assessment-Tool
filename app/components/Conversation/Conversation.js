@@ -14,9 +14,9 @@ import ReadinessComplete from "../ReadinessComplete/ReadinessComplete";
 function ChatWindow({ messages }) {
   const endOfMessagesRef = useRef(null);
 
-  const scrollToBottom = () => {
-    endOfMessagesRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  // const scrollToBottom = () => {
+  //   endOfMessagesRef.current?.scrollIntoView({ behavior: "smooth" });
+  // };
 
   useEffect(() => {
     scrollToBottom();
