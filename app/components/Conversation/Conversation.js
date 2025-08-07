@@ -136,7 +136,8 @@ export function Conversation({ addMessage, setRetakeAssessment, agentId, intervi
     }
   };
 
-  const startConversation = useCallback(async () => {
+  const startConversation = useCallback(async (e) => {
+    e.preventDefault(); 
     window.parent.postMessage({ event: 'requestScrollIntoView' }, '*');
     setIsStarting(true);
     setError(null);
@@ -204,7 +205,7 @@ export function Conversation({ addMessage, setRetakeAssessment, agentId, intervi
                     <button onClick={() => setInputMode('text')} className={inputMode === 'text' ? styles.activeMode : ''}>Text Chat</button>
                 </div>
                 <div className={styles.buttonGroup}>
-                    <button onClick={startConversation} className={`primary-button btn`} disabled={isStarting}>{isStarting ? "Starting..." : `Start ${interviewType}`}</button>
+                    <button type="button" onClick={startConversation} className={`primary-button btn`} disabled={isStarting}>{isStarting ? "Starting..." : `Start ${interviewType}`}</button>
                 </div>
             </>
         )}
