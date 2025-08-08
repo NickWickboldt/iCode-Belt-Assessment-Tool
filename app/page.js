@@ -33,22 +33,24 @@ export default function Home() {
     setMessages(prev => [...prev, msg]);
   };
 
-  // Listen for postMessage to initialize data
   useEffect(() => {
     const handlePostMessage = (event) => {
+
       const { data } = event;
-      if (data && data.event === 'initializeData' && data.payload?.active_belts) {
-        console.log('Received active belts:', data.payload.active_belts);
+      if (data?.event === 'initializeData' && data.payload?.active_belts) {
+        console.log('✅ Received active belts from parent:', data.payload.active_belts);
         setActiveBelts(data.payload.active_belts);
       }
     };
 
     window.addEventListener('message', handlePostMessage);
 
+    window.parent.postMessage({ event: 'iframeReady' }, '*');
+
     return () => {
       window.removeEventListener('message', handlePostMessage);
     };
-  }, []); // Empty dependency array ensures this runs only once on mount
+  }, []);
 
   useEffect(() => {
     let isMounted = true;
