@@ -3,6 +3,7 @@
   width: 100%;
   margin: 0 auto;
   text-align: center;
+  height: 100%;
 }
 
 .grid {
@@ -10,7 +11,7 @@
   grid-template-columns: repeat(5, 1fr);  /* 5 columns */
   grid-template-rows: repeat(2, auto);   /* 2 rows */
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 5vmin;
   width: 100%;
 }
 
@@ -22,6 +23,12 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card img{
+  width: 100%; 
+  height: auto;
+  object-fit: contain
 }
 
 .card:hover {
@@ -43,15 +50,14 @@
 
 
 .conversationWrapper {
-  height: 72vh;
+  height: 100%;
   width: 100%;
-  padding: 1rem;
   border-radius: 0.75rem;
   animation: fadeInUp 0.5s ease forwards;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: 1vmin;
 }
 
@@ -66,6 +72,11 @@
   text-align: center;
   background-color: var(--designer-black);
   z-index: 1000;
+  transform: translateY(+50%);
+}
+
+.backButton:hover{
+  transform: translateY(+70%) !important; 
 }
 
 

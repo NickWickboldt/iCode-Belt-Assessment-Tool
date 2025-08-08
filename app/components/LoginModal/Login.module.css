@@ -9,6 +9,7 @@
   justify-content: center;
   flex-direction: column;
   background-color: #ffffff;
+  min-width: fit-content; 
 }
 
 .authMessage {
@@ -19,10 +20,11 @@
 .centerContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   width: 100%;
-  padding: 2rem;
+  padding: 1vmin;
+  height: 100%; 
 }
 
 @media (max-width: 768px) {

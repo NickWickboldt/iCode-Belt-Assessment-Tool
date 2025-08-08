@@ -69,7 +69,7 @@ export default function BeltSelector({addMessage}) {
       // }
     >
       {/* Dynamic header in uppercase */}
-      <h2>{headerText}</h2>
+      
 
       {!selectedBelt ? (
         <div className={styles.grid}>
@@ -90,6 +90,7 @@ export default function BeltSelector({addMessage}) {
         </div>
       ) : (
         <div className={styles.conversationWrapper}>
+          <h2>{headerText}</h2>
           <Conversation addMessage={addMessage} agentId={AGENT_MAP[selectedBelt.key]} belt={selectedBelt.title}/>
           <button
             className={`${styles.backButton} btn`}

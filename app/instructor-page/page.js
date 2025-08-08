@@ -14,11 +14,11 @@ export default function InstructorPage() {
   };
   return (
     <div>
-      <Navbar setShowChatLog={setShowChatLog} retakeAssessment={retakeAssessment} chatlogIsOpen={showChatLog} showInstructorPage={false}/>
+      <Navbar setShowChatLog={setShowChatLog} retakeAssessment={retakeAssessment} chatlogIsOpen={showChatLog} showInstructorPage={false} />
       <ChatLog messages={messages} isOpen={showChatLog} />
 
-      <div className="main-content-wrapper">
-        <LoginModal addMessage={addMessage}/>
+      <div className="main-content-wrapper" style={{position: 'absolute', top: '0', left: '0'}}>
+        <LoginModal addMessage={addMessage} />
       </div>
     </div>
   );
