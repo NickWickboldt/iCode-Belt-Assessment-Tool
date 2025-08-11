@@ -84,6 +84,10 @@ export function Conversation({ addMessage, setRetakeAssessment, agentId, intervi
             console.log("Reading from ref:", activeBeltsRef.current);
             return { "beltData": activeBeltsRef.current };
         },
+        setAge: async ({ age }) => {
+            console.log("Formally logged the student's age.")
+            sessionStorage.setItem('age', age);
+        }
     },
     streaming: true,
     onConnect: () => console.log("Connected"),

@@ -10,7 +10,7 @@ export default function Recommendation({ recommendation, retakeAssessment }) {
   
   // State variables for form inputs
   const [studentName, setStudentName] = useState('');
-  const [studentAge, setStudentAge] = useState(10); // Changed to string for input type="number" to handle empty initial state
+  const [studentAge, setStudentAge] = useState(parseInt(sessionStorage.getItem('age')) || 10); // Changed to string for input type="number" to handle empty initial state
   const [parentName, setParentName] = useState('');
   const [parentEmail, setParentEmail] = useState('');
   const [parentPhone, setParentPhone] = useState('');
